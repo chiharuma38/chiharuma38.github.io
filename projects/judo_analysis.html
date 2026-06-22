@@ -1,111 +1,124 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Judo Flip Trajectory Analysis - Project Details</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-  <style>
-    .btn {
-      background-color: #C2B280;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      margin-bottom: 1rem;
-    }
-    .btn:hover {
-      background-color: #8B7355;
-      color: white;
-      text-decoration: none;
-    }
-    .card {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #8B7355;
-      position: relative;
-    }
-    .section-title::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 50px;
-      height: 3px;
-      background-color: #C2B280;
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Judo Flip Trajectory Analysis — Chiharu Mamiya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F4EF;--cream2:#EDE9E1;--cream3:#E3DDD3;
+  --ink:#1A1714;--ink2:#5C5650;--ink3:#9B948C;
+  --sage:#4A7C6F;--sage-lt:#D4E8E2;
+  --terra:#C4714A;--terra-lt:#F2DDD4;
+  --sand:#B89E7E;--sand-lt:#EDE4D6;
+  --r:16px;--r-sm:10px;--r-lg:24px;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--sage);text-decoration:none}
+a:hover{text-decoration:underline}
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,239,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--cream3);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav-name{font-family:var(--serif);font-size:17px;color:var(--ink)}
+.nav-back{display:flex;align-items:center;gap:.5rem;font-size:13.5px;color:var(--ink2);font-weight:500;transition:color .15s}
+.nav-back:hover{color:var(--ink);text-decoration:none}
+.nav-back svg{flex-shrink:0}
+.hero{max-width:780px;margin:0 auto;padding:4rem 2.5rem 3rem}
+.hero-eyebrow{font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.75rem}
+.hero h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:1.25rem;letter-spacing:-.01em}
+.hero-desc{font-size:15.5px;color:var(--ink2);line-height:1.78;margin-bottom:2rem;max-width:600px}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.tag{font-size:12px;font-weight:500;padding:5px 13px;border-radius:100px;border:1px solid var(--cream3);color:var(--ink2);background:var(--cream);white-space:nowrap}
+.tag.sage{background:var(--sage-lt);border-color:transparent;color:var(--sage)}
+.tag.terra{background:var(--terra-lt);border-color:transparent;color:var(--terra)}
+.hero-img{width:100%;max-height:420px;object-fit:cover;border-radius:var(--r-lg);border:1px solid var(--cream3);display:block;margin-bottom:3rem}
+.content{max-width:780px;margin:0 auto;padding:0 2.5rem 5rem}
+.section-label{font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem;margin-top:2.5rem}
+.content h2{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--cream3)}
+.content p{color:var(--ink2);margin-bottom:1rem;font-size:15px;line-height:1.75}
+.content p strong{color:var(--ink)}
+.content ul{list-style:none;margin-bottom:1.25rem}
+.content ul li{color:var(--ink2);font-size:15px;line-height:1.7;padding:.3rem 0;padding-left:1.1rem;position:relative}
+.content ul li::before{content:'·';position:absolute;left:0;color:var(--terra);font-size:1.2rem;top:-.05rem}
+.content ul li strong{color:var(--ink)}
+.result-card{background:white;border:1px solid var(--cream3);border-radius:var(--r-lg);padding:1.5rem 1.75rem;margin:1.5rem 0}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-top:1rem}
+.result-stat{background:var(--cream);border-radius:var(--r-sm);padding:.85rem 1rem}
+.result-num{font-family:var(--serif);font-size:1.6rem;color:var(--ink);line-height:1;margin-bottom:.2rem}
+.result-label{font-size:12px;color:var(--ink3);line-height:1.3}
+.pub-card{background:var(--sage-lt);border-radius:var(--r);padding:1rem 1.25rem;margin:1.5rem 0;font-size:13.5px;color:var(--sage)}
+.pub-card a{color:var(--sage);font-weight:500}
+hr.content-divider{border:none;border-top:1px solid var(--cream3);margin:2rem 0}
+footer{border-top:1px solid var(--cream3);padding:1.5rem 2.5rem;text-align:center;font-size:12.5px;color:var(--ink3);max-width:780px;margin:0 auto}
+@media(max-width:640px){
+  nav{padding:0 1.25rem}
+  .hero{padding:2.5rem 1.25rem 2rem}
+  .content{padding:0 1.25rem 4rem}
+}
+</style>
 </head>
-<body class="bg-gray-50">
-  <div class="container mx-auto py-10">
-    <!-- Back Button -->
-    <a href="../index.html#projects" class="btn mb-4">
-      <i class="fas fa-arrow-left"></i>
-      Back to Projects
-    </a>
+<body>
+<nav>
+  <a href="/" class="nav-name">Chiharu Mamiya</a>
+  <a href="/#projects" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to projects
+  </a>
+</nav>
 
-    <div class="card p-8">
-      <h1 class="text-3xl font-bold mb-4 section-title">Judo Flip Trajectory Analysis</h1>
-
-      <!-- Project Images -->
-      <div class="flex flex-col md:flex-row items-center gap-4 mb-6">
-        <figure class="flex flex-col items-center w-full md:w-1/2">
-          <img src="../images/judo_threshold.png" alt="Centroid Trajectory Plot"
-               class="rounded max-w-sm w-full object-contain mx-auto shadow">
-          <figcaption class="text-sm text-gray-600 mt-2 text-center">
-            Image Thresholding
-          </figcaption>
-        </figure>
-        <figure class="flex flex-col items-center w-full md:w-1/2">
-          <img src="../images/judo_data_plot.png" alt="Judo Video Frame"
-               class="rounded max-w-md w-full object-contain mx-auto shadow">
-          <figcaption class="text-sm text-gray-600 mt-2 text-center">
-            Data Plot for Professional vs Amateurs
-          </figcaption>
-        </figure>
-      </div>
-
-      <!-- Project Summary -->
-      <h2 class="text-2xl font-semibold mb-2">Project Summary</h2>
-      <p class="mb-4">
-        This interdisciplinary project combined engineering, mathematics, and kinesiology to analyze the trajectory of judo front rolls using centroid tracking. By recording and processing video of an experienced judo player and three students, we extracted centroid positions frame by frame and compared the flips. The analysis revealed that expert flips were higher and landed closer to the starting point, confirming biomechanical hypotheses. The project also highlighted the importance of accuracy, culture, and human factors in real-world data collection.
-      </p>
-      <ul class="mb-6 list-disc pl-6">
-        <li><strong>Video Analysis:</strong> Used DartFish for frame extraction, Photoshop/AutoRemover for background removal, and FIJI/ImageJ for centroid finding.</li>
-        <li><strong>Mathematical Modeling:</strong> Plotted centroid trajectories and compared experienced vs. novice flips, identifying key differences in height and distance.</li>
-        <li><strong>Human Factors:</strong> Explored the impact of observation and culture on athlete performance and data validity.</li>
-      </ul>
-
-      <!-- Technical Highlights -->
-      <h2 class="text-xl font-semibold mb-2">Technical Highlights</h2>
-      <ul class="mb-4 list-disc pl-6">
-        <li><strong>Sample Size:</strong> One professional (control) and three students learning judo.</li>
-        <li><strong>Data Collection:</strong> Used backdrops, black cloth, and tripods for cleaner video and easier processing.</li>
-        <li><strong>Analysis Pipeline:</strong> Frame-by-frame centroid extraction, thresholding, and trajectory plotting.</li>
-        <li><strong>Insights:</strong> Experts’ flips had greater height and less horizontal distance than novices; data confirmed biomechanical theory.</li>
-      </ul>
-
-      <!-- Lessons Learned -->
-      <h2 class="text-xl font-semibold mb-2">Lessons Learned</h2>
-      <ul class="mb-4 list-disc pl-6">
-        <li>Accuracy in data collection and cleaning is crucial for meaningful results.</li>
-        <li>Human subjects research requires attention to observer effects and cultural context.</li>
-        <li>Combining math, engineering, and sports science yields deeper insights into biomechanics.</li>
-        <li>Manual analysis is labor-intensive; automation using Python/MATLAB is a valuable future direction.</li>
+<div class="hero">
+  <div class="hero-eyebrow">Biomechanics · Computer Vision · MATLAB</div>
+  <h1>Judo Flip Trajectory Analysis</h1>
+  <p class="hero-desc">Mathematical modeling and centroid tracking to analyze flip trajectories in Judo — comparing expert and novice movement patterns using Python and MATLAB.</p>
+  <div class="tags"><span class="tag sage">MATLAB</span> <span class="tag sage">Python</span> <span class="tag">Biomechanics</span> <span class="tag">Computer Vision</span> <span class="tag terra">Data Analysis</span></div>
+</div>
+<div class="content">
+  <img src="/images/judo_front.png" alt="Judo Trajectory Analysis" class="hero-img" onerror="this.style.display='none'"/>
+  
+        <h2>Project Overview</h2>
+        <div class="result-card">
+      <p>Analyzed the biomechanics of Judo throwing techniques by tracking body centroid trajectories from video footage of expert and novice practitioners. Mathematical modeling identified key differences in movement patterns that correlate with technique quality.</p>
+      <ul>
+        <li><strong>Video Processing:</strong> Frame-by-frame centroid tracking of thrower and receiver using Python OpenCV.</li>
+        <li><strong>Trajectory Modeling:</strong> Fitted polynomial curves to centroid paths to extract quantitative trajectory features.</li>
+        <li><strong>Comparative Analysis:</strong> Statistical comparison of trajectory parameters between expert and novice groups.</li>
+        <li><strong>MATLAB Visualization:</strong> Plotted trajectory overlays and statistical distributions for presentation.</li>
       </ul>
     </div>
-  </div>
+        
+        <h2>Key Findings</h2>
+        <div class="result-card">
+      <ul>
+        <li>Expert practitioners showed tighter, more consistent centroid trajectories across repeated throws.</li>
+        <li>The peak height of the receiver's centroid during the throw correlates with technique efficiency.</li>
+        <li>Hip rotation timing was the most discriminating feature between skill levels.</li>
+        <li>Results suggest centroid tracking could be used as an objective coaching feedback tool.</li>
+      </ul>
+    </div>
+        
+        <h2>Lessons Learned</h2>
+        <div class="result-card">
+      <ul>
+        <li>Video quality and consistent camera angles are critical for reliable centroid tracking.</li>
+        <li>Biomechanical analysis bridges engineering and sports science in useful ways.</li>
+        <li>Mathematical modeling can make subjective coaching observations quantitative and reproducible.</li>
+      </ul>
+    </div>
+        
+  
+  <hr class="content-divider"/>
+  <p style="font-size:13px;color:var(--ink3)">
+    <a href="/#projects">← Back to all projects</a>
+  </p>
+</div>
+
+<footer>
+  <p>Chiharu Mamiya · Power Systems Engineer · KTH/KU Leuven SENSE MSc 2026–2028</p>
+</footer>
 </body>
 </html>

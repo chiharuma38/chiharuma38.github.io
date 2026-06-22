@@ -1,120 +1,123 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>IoT Gesture Recognition System - Project Details</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-  <style>
-    .btn {
-      background-color: #C2B280;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      margin-bottom: 1rem;
-    }
-    .btn:hover {
-      background-color: #8B7355;
-      color: white;
-      text-decoration: none;
-    }
-    .card {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #8B7355;
-      position: relative;
-    }
-    .section-title::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 50px;
-      height: 3px;
-      background-color: #C2B280;
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IoT Gesture Recognition System — Chiharu Mamiya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F4EF;--cream2:#EDE9E1;--cream3:#E3DDD3;
+  --ink:#1A1714;--ink2:#5C5650;--ink3:#9B948C;
+  --sage:#4A7C6F;--sage-lt:#D4E8E2;
+  --terra:#C4714A;--terra-lt:#F2DDD4;
+  --sand:#B89E7E;--sand-lt:#EDE4D6;
+  --r:16px;--r-sm:10px;--r-lg:24px;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--sage);text-decoration:none}
+a:hover{text-decoration:underline}
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,239,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--cream3);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav-name{font-family:var(--serif);font-size:17px;color:var(--ink)}
+.nav-back{display:flex;align-items:center;gap:.5rem;font-size:13.5px;color:var(--ink2);font-weight:500;transition:color .15s}
+.nav-back:hover{color:var(--ink);text-decoration:none}
+.nav-back svg{flex-shrink:0}
+.hero{max-width:780px;margin:0 auto;padding:4rem 2.5rem 3rem}
+.hero-eyebrow{font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.75rem}
+.hero h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:1.25rem;letter-spacing:-.01em}
+.hero-desc{font-size:15.5px;color:var(--ink2);line-height:1.78;margin-bottom:2rem;max-width:600px}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.tag{font-size:12px;font-weight:500;padding:5px 13px;border-radius:100px;border:1px solid var(--cream3);color:var(--ink2);background:var(--cream);white-space:nowrap}
+.tag.sage{background:var(--sage-lt);border-color:transparent;color:var(--sage)}
+.tag.terra{background:var(--terra-lt);border-color:transparent;color:var(--terra)}
+.hero-img{width:100%;max-height:420px;object-fit:cover;border-radius:var(--r-lg);border:1px solid var(--cream3);display:block;margin-bottom:3rem}
+.content{max-width:780px;margin:0 auto;padding:0 2.5rem 5rem}
+.section-label{font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem;margin-top:2.5rem}
+.content h2{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--cream3)}
+.content p{color:var(--ink2);margin-bottom:1rem;font-size:15px;line-height:1.75}
+.content p strong{color:var(--ink)}
+.content ul{list-style:none;margin-bottom:1.25rem}
+.content ul li{color:var(--ink2);font-size:15px;line-height:1.7;padding:.3rem 0;padding-left:1.1rem;position:relative}
+.content ul li::before{content:'·';position:absolute;left:0;color:var(--terra);font-size:1.2rem;top:-.05rem}
+.content ul li strong{color:var(--ink)}
+.result-card{background:white;border:1px solid var(--cream3);border-radius:var(--r-lg);padding:1.5rem 1.75rem;margin:1.5rem 0}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-top:1rem}
+.result-stat{background:var(--cream);border-radius:var(--r-sm);padding:.85rem 1rem}
+.result-num{font-family:var(--serif);font-size:1.6rem;color:var(--ink);line-height:1;margin-bottom:.2rem}
+.result-label{font-size:12px;color:var(--ink3);line-height:1.3}
+.pub-card{background:var(--sage-lt);border-radius:var(--r);padding:1rem 1.25rem;margin:1.5rem 0;font-size:13.5px;color:var(--sage)}
+.pub-card a{color:var(--sage);font-weight:500}
+hr.content-divider{border:none;border-top:1px solid var(--cream3);margin:2rem 0}
+footer{border-top:1px solid var(--cream3);padding:1.5rem 2.5rem;text-align:center;font-size:12.5px;color:var(--ink3);max-width:780px;margin:0 auto}
+@media(max-width:640px){
+  nav{padding:0 1.25rem}
+  .hero{padding:2.5rem 1.25rem 2rem}
+  .content{padding:0 1.25rem 4rem}
+}
+</style>
 </head>
-<body class="bg-gray-50">
-  <div class="container mx-auto py-10">
-    <!-- Back Button -->
-    <a href="../index.html#projects" class="btn mb-4">
-      <i class="fas fa-arrow-left"></i>
-      Back to Projects
-    </a>
+<body>
+<nav>
+  <a href="/" class="nav-name">Chiharu Mamiya</a>
+  <a href="/#projects" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to projects
+  </a>
+</nav>
 
-    <div class="card p-8">
-      <h1 class="text-3xl font-bold mb-4 section-title">IoT Gesture Recognition System</h1>
-
-      <!-- Project Images-->
-      <div class="flex flex-col md:flex-row items-center gap-4 mb-6">
-        <figure class="flex flex-col items-center w-full md:w-1/2">
-          <img src="../images/iot_gesture_board.png" alt="Gesture Recognition Controller Board"
-               class="rounded max-w-xs w-full object-contain mx-auto shadow">
-          <figcaption class="text-sm text-gray-600 mt-2 text-center">
-            Gesture Recognition Controller Board
-          </figcaption>
-        </figure>
-        <figure class="flex flex-col items-center w-full md:w-1/2">
-          <img src="../images/iot_gesture_car.png" alt="Gesture Recognition Car"
-               class="rounded max-w-md w-full object-contain mx-auto shadow">
-          <figcaption class="text-sm text-gray-600 mt-2 text-center">
-            IoT Gesture Recognition System Components
-          </figcaption>
-        </figure>
-      </div>
-
-      <!-- Project Summary -->
-      <h2 class="text-2xl font-semibold mb-2">Project Summary</h2>
-      <p class="mb-4">
-        This IoT-based fertilizer spiller system uses ESP32 microcontrollers and machine learning to recognize user hand gestures, enabling both remote manual and automatic gesture-based control of a model vehicle for smart farming applications. By integrating an MPU6050 sensor, custom neural network, and ESP-NOW wireless protocol, the project demonstrates how embedded ML and IoT can automate agricultural processes for greater efficiency and ease of use.
-      </p>
-      <ul class="mb-6 list-disc pl-6">
-        <li><strong>Diverse Control:</strong> Manual mode uses button presses; automatic mode uses gestures (Spin, Back, Front, Left, Right, Stop) detected by the MPU6050 sensor.</li>
-        <li><strong>Machine Learning:</strong> Neural network trained on over 1,200 labeled gesture samples, running real-time on ESP32 hardware.</li>
-        <li><strong>Robust Wireless:</strong> ESP-NOW protocol ensures low-latency communication between controller(s) and the car, outperforming Bluetooth for this application.</li>
-        <li><strong>Field-Tested:</strong> System response time less than 1 second; reliable control in both classroom and field environments up to 220 meters.</li>
-        <li><strong>Modular Design:</strong> System supports easy switching between manual and automatic (gesture) modes for flexibility in operation.</li>
+<div class="hero">
+  <div class="hero-eyebrow">Embedded Systems · IoT · Machine Learning</div>
+  <h1>IoT Gesture Recognition System</h1>
+  <p class="hero-desc">IoT fertilizer spiller with ESP32, dual-mode operation (manual and gesture), and a neural network deployed on-device for real-time agricultural automation.</p>
+  <div class="tags"><span class="tag sage">ESP32</span> <span class="tag sage">Machine Learning</span> <span class="tag">IoT</span> <span class="tag">TinyML</span> <span class="tag terra">Embedded Systems</span></div>
+</div>
+<div class="content">
+  <img src="/images/iot_gesture_front.png" alt="IoT Gesture Recognition" class="hero-img" onerror="this.style.display='none'"/>
+  
+        <h2>Project Overview</h2>
+        <div class="result-card">
+      <p>Designed and built an automated fertilizer dispensing system using an ESP32 microcontroller. The device supports two modes: manual control via button input, and gesture-based control using an IMU sensor and an on-device neural network.</p>
+      <ul>
+        <li><strong>Gesture Recognition:</strong> Trained a TinyML model to classify hand gestures in real time on the ESP32 — no cloud connection required.</li>
+        <li><strong>Dual-Mode Operation:</strong> Seamless switch between manual and automatic gesture-driven dispensing.</li>
+        <li><strong>Agricultural Application:</strong> Designed for precision agriculture — reduces fertilizer waste through targeted, gesture-triggered dispensing.</li>
       </ul>
-
-      <!-- Technical Highlights -->
-      <h2 class="text-xl font-semibold mb-2">Technical Highlights</h2>
-      <ul class="mb-4 list-disc pl-6">
-        <li><strong>Data Collection:</strong> Six gestures mapped to output numbers (Spin-0, Back-1, Front-2, Left-3, Right-4, Stop-5); each motion captured with labeled IMU data.</li>
-        <li><strong>Model Training & Deployment:</strong> Data processed with Python, model trained using TensorFlow/Keras, converted and deployed to ESP32 via TensorFlow Lite for Microcontrollers.</li>
-        <li><strong>Pin Configuration:</strong> Detailed pin mapping for manual/automatic modes, motors, and sensors for reproducibility and troubleshooting.</li>
-        <li><strong>Software:</strong> Modular C++ code for ESP32, Python for ML, and clear documentation for gesture-to-action mapping.</li>
-      </ul>
-
-      <!-- Lessons Learned -->
-      <h2 class="text-xl font-semibold mb-2">Lessons Learned</h2>
-      <ul class="mb-4 list-disc pl-6">
-        <li>High-quality, well-labeled data is critical for robust gesture ML models; increasing the dataset size greatly improved accuracy.</li>
-        <li>Deploying ML to microcontrollers requires careful model optimization and understanding hardware constraints (RAM, flash, CPU).</li>
-        <li>ESP-NOW provided more stable, faster communication than Bluetooth for multi-microcontroller setups.</li>
-        <li>Divide-and-conquer team management and open communication streamlined troubleshooting and accelerated progress.</li>
-        <li>Consulting official documentation and community forums was key to overcoming integration and deployment hurdles.</li>
-      </ul>
-
-      <!-- PDF download/view button -->
-      <a href="../assets/IoT_Gesture_Recognition_System.pdf" target="_blank" class="btn mt-2 inline-flex items-center gap-2">
-        <i class="fas fa-file-pdf"></i>
-        View Full Technical Report (PDF)
-      </a>
     </div>
-  </div>
+        
+        <h2>Technical Highlights</h2>
+        <div class="result-card">
+      <ul>
+        <li>ESP32 microcontroller with integrated Wi-Fi and Bluetooth for IoT connectivity.</li>
+        <li>IMU sensor for gesture input — accelerometer and gyroscope data sampled in real time.</li>
+        <li>TensorFlow Lite model quantized and deployed directly on the ESP32 using TinyML techniques.</li>
+        <li>Python-based training pipeline using collected gesture data with SVM and neural network classifiers.</li>
+      </ul>
+    </div>
+        
+        <h2>Lessons Learned</h2>
+        <div class="result-card">
+      <ul>
+        <li>On-device inference is feasible on constrained hardware when models are properly quantized.</li>
+        <li>Gesture datasets require careful collection across multiple users to avoid overfitting to one person's movement style.</li>
+        <li>Dual-mode fallback (manual override) is essential for reliable real-world deployment.</li>
+      </ul>
+    </div>
+        
+  
+  <hr class="content-divider"/>
+  <p style="font-size:13px;color:var(--ink3)">
+    <a href="/#projects">← Back to all projects</a>
+  </p>
+</div>
+
+<footer>
+  <p>Chiharu Mamiya · Power Systems Engineer · KTH/KU Leuven SENSE MSc 2026–2028</p>
+</footer>
 </body>
 </html>

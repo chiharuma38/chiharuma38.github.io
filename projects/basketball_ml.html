@@ -1,100 +1,125 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Basketball Shot Analysis with Machine Learning - Project Details</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-  <style>
-    .btn {
-      background-color: #C2B280;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      margin-bottom: 1rem;
-    }
-    .btn:hover {
-      background-color: #8B7355;
-      color: white;
-      text-decoration: none;
-    }
-    .card {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #8B7355;
-      position: relative;
-    }
-    .section-title::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 50px;
-      height: 3px;
-      background-color: #C2B280;
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Basketball Shot Analysis with Machine Learning — Chiharu Mamiya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F4EF;--cream2:#EDE9E1;--cream3:#E3DDD3;
+  --ink:#1A1714;--ink2:#5C5650;--ink3:#9B948C;
+  --sage:#4A7C6F;--sage-lt:#D4E8E2;
+  --terra:#C4714A;--terra-lt:#F2DDD4;
+  --sand:#B89E7E;--sand-lt:#EDE4D6;
+  --r:16px;--r-sm:10px;--r-lg:24px;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--sage);text-decoration:none}
+a:hover{text-decoration:underline}
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,239,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--cream3);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav-name{font-family:var(--serif);font-size:17px;color:var(--ink)}
+.nav-back{display:flex;align-items:center;gap:.5rem;font-size:13.5px;color:var(--ink2);font-weight:500;transition:color .15s}
+.nav-back:hover{color:var(--ink);text-decoration:none}
+.nav-back svg{flex-shrink:0}
+.hero{max-width:780px;margin:0 auto;padding:4rem 2.5rem 3rem}
+.hero-eyebrow{font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.75rem}
+.hero h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:1.25rem;letter-spacing:-.01em}
+.hero-desc{font-size:15.5px;color:var(--ink2);line-height:1.78;margin-bottom:2rem;max-width:600px}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.tag{font-size:12px;font-weight:500;padding:5px 13px;border-radius:100px;border:1px solid var(--cream3);color:var(--ink2);background:var(--cream);white-space:nowrap}
+.tag.sage{background:var(--sage-lt);border-color:transparent;color:var(--sage)}
+.tag.terra{background:var(--terra-lt);border-color:transparent;color:var(--terra)}
+.hero-img{width:100%;max-height:420px;object-fit:cover;border-radius:var(--r-lg);border:1px solid var(--cream3);display:block;margin-bottom:3rem}
+.content{max-width:780px;margin:0 auto;padding:0 2.5rem 5rem}
+.section-label{font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem;margin-top:2.5rem}
+.content h2{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--cream3)}
+.content p{color:var(--ink2);margin-bottom:1rem;font-size:15px;line-height:1.75}
+.content p strong{color:var(--ink)}
+.content ul{list-style:none;margin-bottom:1.25rem}
+.content ul li{color:var(--ink2);font-size:15px;line-height:1.7;padding:.3rem 0;padding-left:1.1rem;position:relative}
+.content ul li::before{content:'·';position:absolute;left:0;color:var(--terra);font-size:1.2rem;top:-.05rem}
+.content ul li strong{color:var(--ink)}
+.result-card{background:white;border:1px solid var(--cream3);border-radius:var(--r-lg);padding:1.5rem 1.75rem;margin:1.5rem 0}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-top:1rem}
+.result-stat{background:var(--cream);border-radius:var(--r-sm);padding:.85rem 1rem}
+.result-num{font-family:var(--serif);font-size:1.6rem;color:var(--ink);line-height:1;margin-bottom:.2rem}
+.result-label{font-size:12px;color:var(--ink3);line-height:1.3}
+.pub-card{background:var(--sage-lt);border-radius:var(--r);padding:1rem 1.25rem;margin:1.5rem 0;font-size:13.5px;color:var(--sage)}
+.pub-card a{color:var(--sage);font-weight:500}
+hr.content-divider{border:none;border-top:1px solid var(--cream3);margin:2rem 0}
+footer{border-top:1px solid var(--cream3);padding:1.5rem 2.5rem;text-align:center;font-size:12.5px;color:var(--ink3);max-width:780px;margin:0 auto}
+@media(max-width:640px){
+  nav{padding:0 1.25rem}
+  .hero{padding:2.5rem 1.25rem 2rem}
+  .content{padding:0 1.25rem 4rem}
+}
+</style>
 </head>
-<body class="bg-gray-50">
-  <div class="container mx-auto py-10">
-    <!-- Back Button -->
-    <a href="../index.html#projects" class="btn mb-4">
-      <i class="fas fa-arrow-left"></i>
-      Back to Projects
-    </a>
+<body>
+<nav>
+  <a href="/" class="nav-name">Chiharu Mamiya</a>
+  <a href="/#projects" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to projects
+  </a>
+</nav>
 
-    <!-- Card Content -->
-    <div class="card p-8">
-      <h1 class="text-3xl font-bold mb-4 section-title">Basketball Shot Analysis with Machine Learning</h1>
-      <!-- Project Image -->
-      <img src="../images/basketball_shot_analysis.png" alt="Basketball Shot Analysis ML" class="rounded mb-6 w-full max-w-lg mx-auto">
-
-      <!-- Project Summary -->
-      <h2 class="text-2xl font-semibold mb-2">Project Summary</h2>
-      <p class="mb-4">
-        This project uses wearable IMU sensors and machine learning to analyze and classify basketball shots. By collecting wrist and upper-arm movement data from college players, we trained models to determine shot outcome (make/miss), shooting position, and player experience level. Our workflow demonstrates how sports analytics and data science can enhance training and performance feedback for athletes and coaches.
-      </p>
-
-      <ul class="mb-6 list-disc pl-6">
-        <li><strong>Data-Driven Approach:</strong> Collected inertial data from 14 players taking shots from multiple court locations using Shimmer IMU sensors.</li>
-        <li><strong>Feature Engineering:</strong> Extracted statistical features (mean, variance, maximum) from raw accelerometer and gyroscope signals for each shot.</li>
-        <li><strong>Advanced Modeling:</strong> Trained five ML models, including Artificial Neural Networks (ANN), Support Vector Classifiers (SVC), Random Forests, KNN, and XGBoost.</li>
-        <li><strong>Key Results:</strong> XGBoost achieved 94% accuracy for shot location, SVC achieved 76% accuracy for make/miss prediction, and ANN/SVC classified player experience with near-perfect accuracy.</li>
-        <li><strong>Insights:</strong> The most crucial features included hand/arm acceleration and rotation in the y-axis. Experienced players showed distinctive, more consistent movement patterns than novices.</li>
-      </ul>
-
-      <!-- Technical Highlights -->
-      <h2 class="text-xl font-semibold mb-2">Technical Highlights</h2>
-      <ul class="mb-4 list-disc pl-6">
-        <li><strong>Experimental Setup:</strong> Each participant wore sensors on their shooting hand and upper arm; shots were taken from three distances (4 ft, free throw, three-point arc).</li>
-        <li><strong>Data Processing:</strong> Segmented motion data around shot release, engineered features, and labeled data by shot outcome/location/experience level.</li>
-        <li><strong>Model Validation:</strong> Used 70/30 train-test splits and hyperparameter tuning (via GridSearchCV) for fair evaluation.</li>
-        <li><strong>Deployment Potential:</strong> The pipeline can be adapted for real-time feedback in training or embedded in wearable devices for athletes.</li>
-      </ul>
-
-      <!-- Lessons Learned -->
-      <h2 class="text-xl font-semibold mb-2">Lessons Learned</h2>
-      <ul class="mb-4 list-disc pl-6">
-        <li>Data quality is critical—accurate sensor placement and calibration ensure meaningful results.</li>
-        <li>Hand motion, especially in the y-axis, is a strong indicator of both shot quality and player expertise.</li>
-        <li>Machine learning models can classify complex sports actions with high accuracy, but more data and advanced models (e.g., deep learning) could further improve predictions.</li>
-        <li>Collaboration between engineering and athletics unlocks new opportunities for wearable tech in sports analytics.</li>
-        <li>Interpreting ML feature importance helps coaches and athletes understand what movement patterns impact performance.</li>
+<div class="hero">
+  <div class="hero-eyebrow">Machine Learning · Sports Analytics · IEEE Publication</div>
+  <h1>Basketball Shot Analysis with Machine Learning</h1>
+  <p class="hero-desc">Used wearable IMU sensors and machine learning to analyze and classify basketball shots — determining shot outcome, shooting position, and player experience level. Published at IEEE ICNC 2024.</p>
+  <div class="tags"><span class="tag sage">Python</span> <span class="tag sage">Machine Learning</span> <span class="tag">IMU Sensors</span> <span class="tag terra">IEEE ICNC 2024</span> <span class="tag">SVM · KNN · XGBoost</span></div>
+</div>
+<div class="content">
+  <img src="/images/basketball_shot_front.png" alt="Basketball Shot Analysis" class="hero-img" onerror="this.style.display='none'"/>
+  
+        <h2>Project Summary</h2>
+        <div class="result-card">
+      <p>Collected inertial data from 14 college players taking shots from multiple court locations using Shimmer IMU sensors on the shooting hand and upper arm. Trained five ML models to classify shot outcome, location, and player experience level.</p>
+      <ul>
+        <li><strong>Data-Driven Approach:</strong> Collected data from players at three distances — 4 ft, free throw line, and three-point arc.</li>
+        <li><strong>Feature Engineering:</strong> Extracted mean, variance, and maximum from raw accelerometer and gyroscope signals for each shot.</li>
+        <li><strong>Models Trained:</strong> ANN, SVC, Random Forest, KNN, and XGBoost — evaluated with 70/30 train-test splits and GridSearchCV hyperparameter tuning.</li>
       </ul>
     </div>
-  </div>
+        
+        <h2>Key Results</h2>
+        <div class="result-card">
+      <div class="result-grid">
+        <div class="result-stat"><div class="result-num">94%</div><div class="result-label">XGBoost accuracy for shot location classification</div></div>
+        <div class="result-stat"><div class="result-num">76%</div><div class="result-label">SVC accuracy for make/miss prediction</div></div>
+        <div class="result-stat"><div class="result-num">~100%</div><div class="result-label">ANN/SVC accuracy for player experience level</div></div>
+        <div class="result-stat"><div class="result-num">5</div><div class="result-label">ML models trained and evaluated</div></div>
+      </div>
+      <p style="margin-top:1rem">The most important features were hand and arm acceleration and rotation in the y-axis. Experienced players showed more consistent, distinctive movement patterns compared to novices.</p>
+    </div>
+        
+        <h2>Lessons Learned</h2>
+        <div class="result-card">
+      <ul>
+        <li>Data quality is critical — accurate sensor placement and calibration ensure meaningful results.</li>
+        <li>Hand motion, especially in the y-axis, is a strong indicator of both shot quality and player expertise.</li>
+        <li>ML models can classify complex sports actions with high accuracy — more data and deep learning models could push this further.</li>
+        <li>Interpreting feature importance helps coaches and athletes understand which movement patterns impact performance.</li>
+      </ul>
+    </div>
+        
+  <div class="pub-card">📄 <strong>Publication:</strong> Mamiya, C.A. et al. "Predictive Analysis of Basketball Shots from Inertial Data Using Machine Learning." IEEE ICNC 2024. <a href="https://ieeexplore.ieee.org/document/11105371" target="_blank">View on IEEE →</a></div>
+  <hr class="content-divider"/>
+  <p style="font-size:13px;color:var(--ink3)">
+    <a href="/#projects">← Back to all projects</a>
+  </p>
+</div>
+
+<footer>
+  <p>Chiharu Mamiya · Power Systems Engineer · KTH/KU Leuven SENSE MSc 2026–2028</p>
+</footer>
 </body>
 </html>

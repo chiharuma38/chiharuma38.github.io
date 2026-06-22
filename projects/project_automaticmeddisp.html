@@ -1,105 +1,124 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Automatic Medication Dispenser - Project Details</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-  <style>
-    .btn {
-      background-color: #C2B280;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      margin-bottom: 1rem;
-    }
-    .btn:hover {
-      background-color: #8B7355;
-      color: white;
-      text-decoration: none;
-    }
-    .card {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #8B7355;
-      position: relative;
-    }
-    .section-title::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 50px;
-      height: 3px;
-      background-color: #C2B280;
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Automatic Medication Dispenser — Chiharu Mamiya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F4EF;--cream2:#EDE9E1;--cream3:#E3DDD3;
+  --ink:#1A1714;--ink2:#5C5650;--ink3:#9B948C;
+  --sage:#4A7C6F;--sage-lt:#D4E8E2;
+  --terra:#C4714A;--terra-lt:#F2DDD4;
+  --sand:#B89E7E;--sand-lt:#EDE4D6;
+  --r:16px;--r-sm:10px;--r-lg:24px;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--sage);text-decoration:none}
+a:hover{text-decoration:underline}
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,239,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--cream3);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav-name{font-family:var(--serif);font-size:17px;color:var(--ink)}
+.nav-back{display:flex;align-items:center;gap:.5rem;font-size:13.5px;color:var(--ink2);font-weight:500;transition:color .15s}
+.nav-back:hover{color:var(--ink);text-decoration:none}
+.nav-back svg{flex-shrink:0}
+.hero{max-width:780px;margin:0 auto;padding:4rem 2.5rem 3rem}
+.hero-eyebrow{font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.75rem}
+.hero h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:1.25rem;letter-spacing:-.01em}
+.hero-desc{font-size:15.5px;color:var(--ink2);line-height:1.78;margin-bottom:2rem;max-width:600px}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.tag{font-size:12px;font-weight:500;padding:5px 13px;border-radius:100px;border:1px solid var(--cream3);color:var(--ink2);background:var(--cream);white-space:nowrap}
+.tag.sage{background:var(--sage-lt);border-color:transparent;color:var(--sage)}
+.tag.terra{background:var(--terra-lt);border-color:transparent;color:var(--terra)}
+.hero-img{width:100%;max-height:420px;object-fit:cover;border-radius:var(--r-lg);border:1px solid var(--cream3);display:block;margin-bottom:3rem}
+.content{max-width:780px;margin:0 auto;padding:0 2.5rem 5rem}
+.section-label{font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem;margin-top:2.5rem}
+.content h2{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--cream3)}
+.content p{color:var(--ink2);margin-bottom:1rem;font-size:15px;line-height:1.75}
+.content p strong{color:var(--ink)}
+.content ul{list-style:none;margin-bottom:1.25rem}
+.content ul li{color:var(--ink2);font-size:15px;line-height:1.7;padding:.3rem 0;padding-left:1.1rem;position:relative}
+.content ul li::before{content:'·';position:absolute;left:0;color:var(--terra);font-size:1.2rem;top:-.05rem}
+.content ul li strong{color:var(--ink)}
+.result-card{background:white;border:1px solid var(--cream3);border-radius:var(--r-lg);padding:1.5rem 1.75rem;margin:1.5rem 0}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-top:1rem}
+.result-stat{background:var(--cream);border-radius:var(--r-sm);padding:.85rem 1rem}
+.result-num{font-family:var(--serif);font-size:1.6rem;color:var(--ink);line-height:1;margin-bottom:.2rem}
+.result-label{font-size:12px;color:var(--ink3);line-height:1.3}
+.pub-card{background:var(--sage-lt);border-radius:var(--r);padding:1rem 1.25rem;margin:1.5rem 0;font-size:13.5px;color:var(--sage)}
+.pub-card a{color:var(--sage);font-weight:500}
+hr.content-divider{border:none;border-top:1px solid var(--cream3);margin:2rem 0}
+footer{border-top:1px solid var(--cream3);padding:1.5rem 2.5rem;text-align:center;font-size:12.5px;color:var(--ink3);max-width:780px;margin:0 auto}
+@media(max-width:640px){
+  nav{padding:0 1.25rem}
+  .hero{padding:2.5rem 1.25rem 2rem}
+  .content{padding:0 1.25rem 4rem}
+}
+</style>
 </head>
-<body class="bg-gray-50">
-  <div class="container mx-auto py-10">
-    <!-- Back Button -->
-    <a href="../index.html#projects" class="btn mb-4">
-      <i class="fas fa-arrow-left"></i>
-      Back to Projects
-    </a>
+<body>
+<nav>
+  <a href="/" class="nav-name">Chiharu Mamiya</a>
+  <a href="/#projects" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to projects
+  </a>
+</nav>
 
-    <!-- Card Content -->
-    <div class="card p-8">
-      <h1 class="text-3xl font-bold mb-4 section-title">Automatic Medication Dispenser</h1>
-      <!-- Project Image -->
-      <img src="../images/medication_dispenser_fritzing.png" alt="Fritzing Wiring Diagram" class="rounded mb-6 w-full max-w-lg mx-auto">
-
-      <!-- Project Summary -->
-      <h2 class="text-2xl font-semibold mb-2">Project Summary</h2>
-      <p class="mb-4">
-        The Automatic Medication Dispenser is a user-friendly, Arduino-based device designed to help people take their medications on time and safely. Inspired by challenges faced by busy students, the elderly, and those with time-sensitive medications, this project automates pill dispensing, features a child-safe container, and provides clear notifications through LEDs and sound.
-      </p>
-
-      <ul class="mb-6 list-disc pl-6">
-        <li><strong>Reliable Reminders:</strong> Uses a timer, motorized wheel, and LEDs to remind users and dispense the correct medication dose at the right time.</li>
-        <li><strong>Child Safety:</strong> Only dispenses pills into a protected drawer that is difficult for children to access.</li>
-        <li><strong>Interactive Feedback:</strong> Six LEDs blink in sequence, and a buzzer sounds until the user retrieves the medication.</li>
-        <li><strong>Smart Sensing:</strong> An ultrasonic sensor detects when the drawer is opened and stops the notification circuit.</li>
-        <li><strong>Efficient Design:</strong> Built with an Arduino, DC motors, custom wheels, and a breadboard for easy prototyping and troubleshooting.</li>
-      </ul>
-
-      <div class="flex flex-col md:flex-row gap-4 mb-6">
-        <img src="../images/medication_dispenser_front.png" alt="Medication Dispenser Front" class="rounded w-full md:w-1/2 max-w-xs mx-auto">
-        <img src="../images/medication_dispenser_inside.png" alt="Medication Dispenser Inside" class="rounded w-full md:w-1/2 max-w-xs mx-auto">
-      </div>
-
-      <!-- Technical Highlights -->
-      <h2 class="text-xl font-semibold mb-2">Technical Highlights</h2>
-      <ul class="mb-4 list-disc pl-6">
-        <li><strong>Electronics:</strong> All components (LEDs, motors, ultrasonic sensor, and button) are powered and controlled via Arduino and a breadboard. The Fritzing diagram above shows the full wiring.</li>
-        <li><strong>Programming:</strong> Custom Arduino code manages the timed motor spins, LED chaser circuit, and ultrasonic sensing logic.</li>
-        <li><strong>Mechanical:</strong> The wheel mechanism ensures only one pill is dispensed at a time, and the slanted tube design prevents jamming.</li>
-        <li><strong>Physical Build:</strong> The enclosure is made from wood, with a lockable drawer and clear LED indicator panel.</li>
-      </ul>
-
-      <!-- Lessons Learned -->
-      <h2 class="text-xl font-semibold mb-2">Lessons Learned</h2>
-      <ul class="mb-4 list-disc pl-6">
-        <li>Precise distance and orientation between the pill tube and the wheel are crucial to ensure only one pill dispenses at a time (accounting for gravity and pill shape).</li>
-        <li>Iterative prototyping and troubleshooting were vital—early versions faced jamming and electrical noise issues, solved by redesigning and improving the wheel and enclosure.</li>
-        <li>Child safety must be considered at both the hardware and software level.</li>
-        <li>Collaboration, task division, and regular testing made the project successful and manageable.</li>
-        <li>Documentation and clear wiring (as in the Fritzing diagram) are essential for building and debugging complex embedded systems.</li>
+<div class="hero">
+  <div class="hero-eyebrow">Embedded Systems · Arduino · Healthcare</div>
+  <h1>Automatic Medication Dispenser</h1>
+  <p class="hero-desc">Arduino-based automatic medication dispensing system with scheduled alerts, safety lock, ultrasonic sensing, and LED notification — designed for elderly and chronic care patients.</p>
+  <div class="tags"><span class="tag sage">Arduino</span> <span class="tag sage">Embedded Systems</span> <span class="tag">Healthcare</span> <span class="tag">Sensors</span> <span class="tag terra">C Programming</span></div>
+</div>
+<div class="content">
+  <img src="/images/medication_dispenser.png" alt="Automatic Medication Dispenser" class="hero-img" onerror="this.style.display='none'"/>
+  
+        <h2>Project Overview</h2>
+        <div class="result-card">
+      <p>Designed and built an automatic medication dispenser to help elderly and chronic illness patients maintain medication schedules. The system provides timed dispensing, missed-dose alerts, and a safety lock to prevent accidental double-dosing.</p>
+      <ul>
+        <li><strong>Scheduled Dispensing:</strong> RTC (real-time clock) module triggers dispensing at pre-programmed times — configurable via serial interface.</li>
+        <li><strong>Safety Lock:</strong> Servo-controlled door mechanism prevents access between scheduled dispensing windows.</li>
+        <li><strong>Presence Detection:</strong> Ultrasonic sensor confirms medication has been removed from the tray after dispensing.</li>
+        <li><strong>Missed Dose Alert:</strong> LED and buzzer alert if medication is not taken within a set window after dispensing.</li>
       </ul>
     </div>
-  </div>
+        
+        <h2>Technical Highlights</h2>
+        <div class="result-card">
+      <ul>
+        <li>Arduino Uno with DS3231 RTC for accurate timekeeping independent of power interruptions.</li>
+        <li>HC-SR04 ultrasonic sensor for non-contact medication removal detection.</li>
+        <li>Servo motor controlling the dispensing gate, driven by Arduino PWM output.</li>
+        <li>16x2 LCD display showing current time, next scheduled dose, and system status.</li>
+      </ul>
+    </div>
+        
+        <h2>Lessons Learned</h2>
+        <div class="result-card">
+      <ul>
+        <li>Healthcare devices require fail-safe design — the system defaults to locked on power loss to prevent accidental access.</li>
+        <li>User feedback (LCD, LED, buzzer) is essential for devices used by non-technical users.</li>
+        <li>RTC drift over time needs periodic calibration for long-term deployment reliability.</li>
+      </ul>
+    </div>
+        
+  
+  <hr class="content-divider"/>
+  <p style="font-size:13px;color:var(--ink3)">
+    <a href="/#projects">← Back to all projects</a>
+  </p>
+</div>
+
+<footer>
+  <p>Chiharu Mamiya · Power Systems Engineer · KTH/KU Leuven SENSE MSc 2026–2028</p>
+</footer>
 </body>
 </html>
