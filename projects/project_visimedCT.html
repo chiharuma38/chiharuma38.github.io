@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VisiMed CT - Project Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <style>
+    .btn {
+      background-color: #C2B280;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      margin-bottom: 1rem;
+    }
+    .btn:hover {
+      background-color: #8B7355;
+      color: white;
+      text-decoration: none;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #8B7355;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 50px;
+      height: 3px;
+      background-color: #C2B280;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="container mx-auto py-10">
+    <!-- Back Button -->
+    <a href="../index.html#projects" class="btn mb-4">
+      <i class="fas fa-arrow-left"></i>
+      Back to Projects
+    </a>
+
+    <!-- Card Content -->
+    <div class="card p-8">
+      <h1 class="text-3xl font-bold mb-4 section-title">VisiMed CT – Bioinnovation Bootcamp</h1>
+      <!-- Project Image -->
+      <!-- If your file is in /website/projects/ -->
+      <img src="../images/VisimedCT_pitch.png" alt="VisiMed CT Pitch">
+
+
+      <!-- <img src="../images/VisimedCT_pitch copy.png" alt="VisiMed CT Pitch" class="rounded mb-6 w-full max-w-lg mx-auto"> -->
+
+      <!-- Project Summary -->
+      <h2 class="text-2xl font-semibold mb-2">Project Summary</h2>
+      <p class="mb-4">
+        VisiMed CT is an educational platform designed to empower medical students and professionals through interactive imaging tools, AI-powered grayscale image colorization, and expert-led content. Pitched at the 2024 Capital Region Bioinnovation Bootcamp, VisiMed CT addresses the gap between textbook theory and hands-on diagnostic experience.
+      </p>
+      <ul class="mb-6 list-disc pl-6">
+        <li><strong>Innovative Features:</strong> Real-time CT image colorization, export to flashcards, interactive quizzes, and department-specific voice commentary.</li>
+        <li><strong>Professional Guidance:</strong> Content and audio commentary by practicing clinicians and educators, tailored for different specialties.</li>
+        <li><strong>Integrated Learning:</strong> Combines case studies, image labeling, and adaptive quizzes to accelerate learning and improve communication skills.</li>
+      </ul>
+
+      <!-- Market & Impact -->
+      <h2 class="text-xl font-semibold mb-2">Market & Impact</h2>
+      <ul class="mb-4 list-disc pl-6">
+        <li><strong>Market Opportunity:</strong> Targets the rapidly growing healthcare education market ($300B by 2030) and radiology software segment ($12.7B by 2030).</li>
+        <li><strong>Primary Users:</strong> Large hospitals, clinics, medical and radiology schools, and individual medical students.</li>
+        <li><strong>Business Model:</strong> Offers flexible subscriptions for individuals and institutions, as well as software packages and optional training support.</li>
+        <li><strong>Strategic Partnerships:</strong> Collaborates with hospitals, medical schools, and technology providers to expand reach and impact.</li>
+      </ul>
+
+      <!-- Timeline & Team -->
+      <h2 class="text-xl font-semibold mb-2">Timeline & Team</h2>
+      <ul class="mb-4 list-disc pl-6">
+        <li><strong>2024:</strong> Resource gathering, model selection, AI algorithm development, MVP prototype, user testing, and pitch night finalist.</li>
+        <li><strong>Team:</strong> Founder (Engineering), Academic Lead (General Surgery), Technical Lead (AI/ML), Business Lead (Entrepreneurship).</li>
+      </ul>
+
+      <!-- Learnings -->
+      <h2 class="text-xl font-semibold mb-2">Learnings & Takeaways</h2>
+      <ul class="mb-4 list-disc pl-6">
+        <li>Gained first-hand insight into the medical entrepreneurship process, including pitching, team-building, and rapid prototyping.</li>
+        <li>Learned to prioritize user feedback from clinicians and students, which led to new features like audio commentary and flashcards.</li>
+        <li>Developed skills in competitive analysis, business modeling, and customer voice discovery.</li>
+        <li>Discovered the importance of networking, mentorship, and cross-disciplinary collaboration.</li>
+        <li>Experienced the challenges of balancing technical feasibility, user needs, and business viability in a real-world startup setting.</li>
+      </ul>
+
+      <!-- News & External Links -->
+      <h2 class="text-xl font-semibold mb-2">Related News & Resources</h2>
+      <ul class="mb-6 list-disc pl-6">
+        <li>
+          <a href="https://www.acphs.edu/acphs-in-the-news/bootcamp-teaches-medical-entrepreneurs-about-business" target="_blank" class="text-blue-700 hover:underline">
+            Bootcamp teaches medical entrepreneurs about business (ACPhS News)
+          </a>
+        </li>
+        <li>
+          <a href="https://www.union.edu/news/stories/202405/fore-student-created-golf-app-wins-annual-business-pitch-competition" target="_blank" class="text-blue-700 hover:underline">
+            Union College Pitch Competition
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

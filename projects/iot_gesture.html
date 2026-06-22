@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IoT Gesture Recognition System - Project Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <style>
+    .btn {
+      background-color: #C2B280;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      margin-bottom: 1rem;
+    }
+    .btn:hover {
+      background-color: #8B7355;
+      color: white;
+      text-decoration: none;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #8B7355;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 50px;
+      height: 3px;
+      background-color: #C2B280;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="container mx-auto py-10">
+    <!-- Back Button -->
+    <a href="../index.html#projects" class="btn mb-4">
+      <i class="fas fa-arrow-left"></i>
+      Back to Projects
+    </a>
+
+    <div class="card p-8">
+      <h1 class="text-3xl font-bold mb-4 section-title">IoT Gesture Recognition System</h1>
+
+      <!-- Project Images-->
+      <div class="flex flex-col md:flex-row items-center gap-4 mb-6">
+        <figure class="flex flex-col items-center w-full md:w-1/2">
+          <img src="../images/iot_gesture_board.png" alt="Gesture Recognition Controller Board"
+               class="rounded max-w-xs w-full object-contain mx-auto shadow">
+          <figcaption class="text-sm text-gray-600 mt-2 text-center">
+            Gesture Recognition Controller Board
+          </figcaption>
+        </figure>
+        <figure class="flex flex-col items-center w-full md:w-1/2">
+          <img src="../images/iot_gesture_car.png" alt="Gesture Recognition Car"
+               class="rounded max-w-md w-full object-contain mx-auto shadow">
+          <figcaption class="text-sm text-gray-600 mt-2 text-center">
+            IoT Gesture Recognition System Components
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Project Summary -->
+      <h2 class="text-2xl font-semibold mb-2">Project Summary</h2>
+      <p class="mb-4">
+        This IoT-based fertilizer spiller system uses ESP32 microcontrollers and machine learning to recognize user hand gestures, enabling both remote manual and automatic gesture-based control of a model vehicle for smart farming applications. By integrating an MPU6050 sensor, custom neural network, and ESP-NOW wireless protocol, the project demonstrates how embedded ML and IoT can automate agricultural processes for greater efficiency and ease of use.
+      </p>
+      <ul class="mb-6 list-disc pl-6">
+        <li><strong>Diverse Control:</strong> Manual mode uses button presses; automatic mode uses gestures (Spin, Back, Front, Left, Right, Stop) detected by the MPU6050 sensor.</li>
+        <li><strong>Machine Learning:</strong> Neural network trained on over 1,200 labeled gesture samples, running real-time on ESP32 hardware.</li>
+        <li><strong>Robust Wireless:</strong> ESP-NOW protocol ensures low-latency communication between controller(s) and the car, outperforming Bluetooth for this application.</li>
+        <li><strong>Field-Tested:</strong> System response time less than 1 second; reliable control in both classroom and field environments up to 220 meters.</li>
+        <li><strong>Modular Design:</strong> System supports easy switching between manual and automatic (gesture) modes for flexibility in operation.</li>
+      </ul>
+
+      <!-- Technical Highlights -->
+      <h2 class="text-xl font-semibold mb-2">Technical Highlights</h2>
+      <ul class="mb-4 list-disc pl-6">
+        <li><strong>Data Collection:</strong> Six gestures mapped to output numbers (Spin-0, Back-1, Front-2, Left-3, Right-4, Stop-5); each motion captured with labeled IMU data.</li>
+        <li><strong>Model Training & Deployment:</strong> Data processed with Python, model trained using TensorFlow/Keras, converted and deployed to ESP32 via TensorFlow Lite for Microcontrollers.</li>
+        <li><strong>Pin Configuration:</strong> Detailed pin mapping for manual/automatic modes, motors, and sensors for reproducibility and troubleshooting.</li>
+        <li><strong>Software:</strong> Modular C++ code for ESP32, Python for ML, and clear documentation for gesture-to-action mapping.</li>
+      </ul>
+
+      <!-- Lessons Learned -->
+      <h2 class="text-xl font-semibold mb-2">Lessons Learned</h2>
+      <ul class="mb-4 list-disc pl-6">
+        <li>High-quality, well-labeled data is critical for robust gesture ML models; increasing the dataset size greatly improved accuracy.</li>
+        <li>Deploying ML to microcontrollers requires careful model optimization and understanding hardware constraints (RAM, flash, CPU).</li>
+        <li>ESP-NOW provided more stable, faster communication than Bluetooth for multi-microcontroller setups.</li>
+        <li>Divide-and-conquer team management and open communication streamlined troubleshooting and accelerated progress.</li>
+        <li>Consulting official documentation and community forums was key to overcoming integration and deployment hurdles.</li>
+      </ul>
+
+      <!-- PDF download/view button -->
+      <a href="../assets/IoT_Gesture_Recognition_System.pdf" target="_blank" class="btn mt-2 inline-flex items-center gap-2">
+        <i class="fas fa-file-pdf"></i>
+        View Full Technical Report (PDF)
+      </a>
+    </div>
+  </div>
+</body>
+</html>

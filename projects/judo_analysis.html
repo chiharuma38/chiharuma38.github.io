@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Judo Flip Trajectory Analysis - Project Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <style>
+    .btn {
+      background-color: #C2B280;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      margin-bottom: 1rem;
+    }
+    .btn:hover {
+      background-color: #8B7355;
+      color: white;
+      text-decoration: none;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #8B7355;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 50px;
+      height: 3px;
+      background-color: #C2B280;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="container mx-auto py-10">
+    <!-- Back Button -->
+    <a href="../index.html#projects" class="btn mb-4">
+      <i class="fas fa-arrow-left"></i>
+      Back to Projects
+    </a>
+
+    <div class="card p-8">
+      <h1 class="text-3xl font-bold mb-4 section-title">Judo Flip Trajectory Analysis</h1>
+
+      <!-- Project Images -->
+      <div class="flex flex-col md:flex-row items-center gap-4 mb-6">
+        <figure class="flex flex-col items-center w-full md:w-1/2">
+          <img src="../images/judo_threshold.png" alt="Centroid Trajectory Plot"
+               class="rounded max-w-sm w-full object-contain mx-auto shadow">
+          <figcaption class="text-sm text-gray-600 mt-2 text-center">
+            Image Thresholding
+          </figcaption>
+        </figure>
+        <figure class="flex flex-col items-center w-full md:w-1/2">
+          <img src="../images/judo_data_plot.png" alt="Judo Video Frame"
+               class="rounded max-w-md w-full object-contain mx-auto shadow">
+          <figcaption class="text-sm text-gray-600 mt-2 text-center">
+            Data Plot for Professional vs Amateurs
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Project Summary -->
+      <h2 class="text-2xl font-semibold mb-2">Project Summary</h2>
+      <p class="mb-4">
+        This interdisciplinary project combined engineering, mathematics, and kinesiology to analyze the trajectory of judo front rolls using centroid tracking. By recording and processing video of an experienced judo player and three students, we extracted centroid positions frame by frame and compared the flips. The analysis revealed that expert flips were higher and landed closer to the starting point, confirming biomechanical hypotheses. The project also highlighted the importance of accuracy, culture, and human factors in real-world data collection.
+      </p>
+      <ul class="mb-6 list-disc pl-6">
+        <li><strong>Video Analysis:</strong> Used DartFish for frame extraction, Photoshop/AutoRemover for background removal, and FIJI/ImageJ for centroid finding.</li>
+        <li><strong>Mathematical Modeling:</strong> Plotted centroid trajectories and compared experienced vs. novice flips, identifying key differences in height and distance.</li>
+        <li><strong>Human Factors:</strong> Explored the impact of observation and culture on athlete performance and data validity.</li>
+      </ul>
+
+      <!-- Technical Highlights -->
+      <h2 class="text-xl font-semibold mb-2">Technical Highlights</h2>
+      <ul class="mb-4 list-disc pl-6">
+        <li><strong>Sample Size:</strong> One professional (control) and three students learning judo.</li>
+        <li><strong>Data Collection:</strong> Used backdrops, black cloth, and tripods for cleaner video and easier processing.</li>
+        <li><strong>Analysis Pipeline:</strong> Frame-by-frame centroid extraction, thresholding, and trajectory plotting.</li>
+        <li><strong>Insights:</strong> Experts’ flips had greater height and less horizontal distance than novices; data confirmed biomechanical theory.</li>
+      </ul>
+
+      <!-- Lessons Learned -->
+      <h2 class="text-xl font-semibold mb-2">Lessons Learned</h2>
+      <ul class="mb-4 list-disc pl-6">
+        <li>Accuracy in data collection and cleaning is crucial for meaningful results.</li>
+        <li>Human subjects research requires attention to observer effects and cultural context.</li>
+        <li>Combining math, engineering, and sports science yields deeper insights into biomechanics.</li>
+        <li>Manual analysis is labor-intensive; automation using Python/MATLAB is a valuable future direction.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

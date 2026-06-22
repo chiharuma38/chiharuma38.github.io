@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Automatic Medication Dispenser - Project Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <style>
+    .btn {
+      background-color: #C2B280;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      margin-bottom: 1rem;
+    }
+    .btn:hover {
+      background-color: #8B7355;
+      color: white;
+      text-decoration: none;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #8B7355;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 50px;
+      height: 3px;
+      background-color: #C2B280;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="container mx-auto py-10">
+    <!-- Back Button -->
+    <a href="../index.html#projects" class="btn mb-4">
+      <i class="fas fa-arrow-left"></i>
+      Back to Projects
+    </a>
+
+    <!-- Card Content -->
+    <div class="card p-8">
+      <h1 class="text-3xl font-bold mb-4 section-title">Automatic Medication Dispenser</h1>
+      <!-- Project Image -->
+      <img src="../images/medication_dispenser_fritzing.png" alt="Fritzing Wiring Diagram" class="rounded mb-6 w-full max-w-lg mx-auto">
+
+      <!-- Project Summary -->
+      <h2 class="text-2xl font-semibold mb-2">Project Summary</h2>
+      <p class="mb-4">
+        The Automatic Medication Dispenser is a user-friendly, Arduino-based device designed to help people take their medications on time and safely. Inspired by challenges faced by busy students, the elderly, and those with time-sensitive medications, this project automates pill dispensing, features a child-safe container, and provides clear notifications through LEDs and sound.
+      </p>
+
+      <ul class="mb-6 list-disc pl-6">
+        <li><strong>Reliable Reminders:</strong> Uses a timer, motorized wheel, and LEDs to remind users and dispense the correct medication dose at the right time.</li>
+        <li><strong>Child Safety:</strong> Only dispenses pills into a protected drawer that is difficult for children to access.</li>
+        <li><strong>Interactive Feedback:</strong> Six LEDs blink in sequence, and a buzzer sounds until the user retrieves the medication.</li>
+        <li><strong>Smart Sensing:</strong> An ultrasonic sensor detects when the drawer is opened and stops the notification circuit.</li>
+        <li><strong>Efficient Design:</strong> Built with an Arduino, DC motors, custom wheels, and a breadboard for easy prototyping and troubleshooting.</li>
+      </ul>
+
+      <div class="flex flex-col md:flex-row gap-4 mb-6">
+        <img src="../images/medication_dispenser_front.png" alt="Medication Dispenser Front" class="rounded w-full md:w-1/2 max-w-xs mx-auto">
+        <img src="../images/medication_dispenser_inside.png" alt="Medication Dispenser Inside" class="rounded w-full md:w-1/2 max-w-xs mx-auto">
+      </div>
+
+      <!-- Technical Highlights -->
+      <h2 class="text-xl font-semibold mb-2">Technical Highlights</h2>
+      <ul class="mb-4 list-disc pl-6">
+        <li><strong>Electronics:</strong> All components (LEDs, motors, ultrasonic sensor, and button) are powered and controlled via Arduino and a breadboard. The Fritzing diagram above shows the full wiring.</li>
+        <li><strong>Programming:</strong> Custom Arduino code manages the timed motor spins, LED chaser circuit, and ultrasonic sensing logic.</li>
+        <li><strong>Mechanical:</strong> The wheel mechanism ensures only one pill is dispensed at a time, and the slanted tube design prevents jamming.</li>
+        <li><strong>Physical Build:</strong> The enclosure is made from wood, with a lockable drawer and clear LED indicator panel.</li>
+      </ul>
+
+      <!-- Lessons Learned -->
+      <h2 class="text-xl font-semibold mb-2">Lessons Learned</h2>
+      <ul class="mb-4 list-disc pl-6">
+        <li>Precise distance and orientation between the pill tube and the wheel are crucial to ensure only one pill dispenses at a time (accounting for gravity and pill shape).</li>
+        <li>Iterative prototyping and troubleshooting were vital—early versions faced jamming and electrical noise issues, solved by redesigning and improving the wheel and enclosure.</li>
+        <li>Child safety must be considered at both the hardware and software level.</li>
+        <li>Collaboration, task division, and regular testing made the project successful and manageable.</li>
+        <li>Documentation and clear wiring (as in the Fritzing diagram) are essential for building and debugging complex embedded systems.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

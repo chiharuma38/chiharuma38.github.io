@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arthroscope-Camera CAD Design - Project Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <style>
+    .btn {
+      background-color: #C2B280;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      margin-bottom: 1rem;
+    }
+    .btn:hover {
+      background-color: #8B7355;
+      color: white;
+      text-decoration: none;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #8B7355;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 50px;
+      height: 3px;
+      background-color: #C2B280;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="container mx-auto py-10">
+    <!-- Back Button -->
+    <a href="../index.html#projects" class="btn mb-4">
+      <i class="fas fa-arrow-left"></i>
+      Back to Projects
+    </a>
+
+    <div class="card p-8">
+      <h1 class="text-3xl font-bold mb-4 section-title">Arthroscope-Camera CAD Design</h1>
+
+      <!-- Project Images -->
+      <div class="flex flex-col md:flex-row items-center gap-4 mb-6">
+        <figure class="flex flex-col items-center w-full md:w-1/2">
+          <img src="../images/arthroscope_camera.png" alt="SolidWorks Arthroscope Part" class="rounded max-w-xs w-full object-contain mx-auto shadow">
+          <figcaption class="text-sm text-gray-600 mt-2 text-center">Arthroscope Camera Part (SolidWorks)</figcaption>
+        </figure>
+        <figure class="flex flex-col items-center w-full md:w-1/2">
+          <img src="../images/arthroscope_connection_part.png" alt="Arthroscope Final Assembly"
+               class="rounded max-w-xs w-full object-contain mx-auto shadow">
+          <figcaption class="text-sm text-gray-600 mt-2 text-center">
+            Arthroscope Light Source Connection Part (SolidWorks)
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Project Summary -->
+      <h2 class="text-2xl font-semibold mb-2">Project Summary</h2>
+      <p class="mb-4">
+        This project involved the design and modeling of a medical arthroscope with an integrated camera system using SolidWorks. The goal was to create realistic, manufacturable, and ergonomically designed parts that could be assembled virtually, simulating a real medical device used in minimally invasive orthopedic procedures.
+      </p>
+      <ul class="mb-6 list-disc pl-6">
+        <li><strong>Complex Geometry:</strong> Designed intricate camera and arthroscope parts using lofts, extrudes, advanced sketching, and creative problem-solving.</li>
+        <li><strong>Iterative Problem-Solving:</strong> Overcame challenges in cutting curved surfaces, creating spikes and fillets, and ensuring correct dimensions and fit in assembly.</li>
+        <li><strong>Full Assembly:</strong> Modeled and assembled all major arthroscope parts and connectors, testing for fit, function, and realism.</li>
+        <li><strong>Manufacturability:</strong> Paid close attention to dimensioning, interfaces, and constraints for real-world prototyping and usability.</li>
+      </ul>
+
+      <!-- Technical Highlights -->
+      <h2 class="text-xl font-semibold mb-2">Technical Highlights</h2>
+      <ul class="mb-4 list-disc pl-6">
+        <li><strong>SolidWorks Skills:</strong> Used advanced features (lofted boss/base, multi-plane sketching, split lines, 3D sketch, and cut-extrudes) for complex shapes.</li>
+        <li><strong>Modular Part Design:</strong> Created each part as a separate file and combined them in a master assembly for flexibility and clarity.</li>
+        <li><strong>Challenges Overcome:</strong> Developed creative solutions for cutting even surfaces on curved models, properly dimensioning assemblies, and managing multiple file relationships.</li>
+        <li><strong>Project Documentation:</strong> Maintained a detailed log of modeling steps, problems, and solutions for each component.</li>
+      </ul>
+
+      <!-- Lessons Learned -->
+      <h2 class="text-xl font-semibold mb-2">Lessons Learned</h2>
+      <ul class="mb-4 list-disc pl-6">
+        <li>Careful planning and stepwise modeling are vital for complex assemblies—start with basic shapes, add detail iteratively.</li>
+        <li>Documenting modeling steps and challenges is essential for troubleshooting and future reference.</li>
+        <li>SolidWorks’ advanced features are powerful for medical device design but require precision and patience.</li>
+        <li>Practical manufacturability and assembly constraints are as important as visual aesthetics.</li>
+        <li>Testing and learning from failed attempts (especially with curved/filleted cuts) leads to improved modeling skills.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
