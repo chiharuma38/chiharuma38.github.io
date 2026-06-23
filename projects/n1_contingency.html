@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>N-1 Contingency Screening, Chiharu Mamiya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F4EF;--cream2:#EDE9E1;--cream3:#E3DDD3;
+  --ink:#1A1714;--ink2:#5C5650;--ink3:#9B948C;
+  --sage:#4A7C6F;--sage-lt:#D4E8E2;
+  --terra:#C4714A;--terra-lt:#F2DDD4;
+  --sand:#B89E7E;--sand-lt:#EDE4D6;
+  --sky:#4B7FA8;--sky-lt:#D5E6F2;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --r:16px;--r-sm:10px;--r-lg:24px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--sage);text-decoration:none}
+a:hover{text-decoration:underline}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,239,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--cream3);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav-name{font-family:var(--serif);font-size:17px;color:var(--ink)}
+.nav-back{display:flex;align-items:center;gap:.5rem;font-size:13.5px;color:var(--ink2);font-weight:500;transition:color .15s}
+.nav-back:hover{color:var(--ink);text-decoration:none}
+
+.hero{max-width:800px;margin:0 auto;padding:4rem 2.5rem 2.5rem}
+.hero-eyebrow{font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.75rem}
+.hero h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:1rem;letter-spacing:-.01em}
+.hero-desc{font-size:15.5px;color:var(--ink2);line-height:1.78;margin-bottom:1.5rem;max-width:640px}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.tag{font-size:12px;font-weight:500;padding:5px 13px;border-radius:100px;border:1px solid var(--cream3);color:var(--ink2);background:var(--cream)}
+.tag.sage{background:var(--sage-lt);border-color:transparent;color:var(--sage)}
+.tag.terra{background:var(--terra-lt);border-color:transparent;color:var(--terra)}
+.tag.sky{background:var(--sky-lt);border-color:transparent;color:var(--sky)}
+
+.result-banner{background:var(--terra-lt);border-left:3px solid var(--terra);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:1rem 1.25rem;margin-bottom:2rem}
+.result-banner-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--terra);margin-bottom:.5rem}
+.result-banner-stats{display:flex;flex-wrap:wrap;gap:2rem}
+.rstat-num{font-family:var(--serif);font-size:1.8rem;color:var(--ink);line-height:1}
+.rstat-label{font-size:12px;color:var(--ink2);line-height:1.35;margin-top:.2rem}
+
+.content{max-width:800px;margin:0 auto;padding:0 2.5rem 5rem}
+.section-eyebrow{font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem;margin-top:3rem}
+.content h2{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--cream3)}
+.content h3{font-size:15px;font-weight:500;color:var(--ink);margin:1.25rem 0 .5rem}
+.content p{color:var(--ink2);margin-bottom:1rem;font-size:15px;line-height:1.78}
+.content p strong{color:var(--ink)}
+.content ul{list-style:none;margin-bottom:1.25rem}
+.content ul li{color:var(--ink2);font-size:15px;line-height:1.7;padding:.3rem 0 .3rem 1.1rem;position:relative;border-bottom:0.5px solid var(--cream3)}
+.content ul li:last-child{border-bottom:none}
+.content ul li::before{content:'·';position:absolute;left:0;color:var(--terra);font-size:1.2rem;top:-.05rem}
+.content ul li strong{color:var(--ink)}
+
+.card{background:white;border:1px solid var(--cream3);border-radius:var(--r);padding:1.5rem;margin:1.25rem 0}
+.card-title{font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);margin-bottom:1rem}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem}
+.stat{background:var(--cream);border-radius:var(--r-sm);padding:.85rem 1rem}
+.stat-num{font-family:var(--serif);font-size:1.6rem;color:var(--ink);line-height:1;margin-bottom:.2rem}
+.stat-label{font-size:12px;color:var(--ink3);line-height:1.3}
+
+.chart-img{width:100%;border-radius:var(--r);border:1px solid var(--cream3);display:block;margin:1.25rem 0}
+
+.ieee-card{background:white;border:1px solid var(--cream3);border-radius:var(--r-lg);padding:1.75rem;margin:1.25rem 0}
+.ieee-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.75rem;margin:1rem 0}
+.ieee-stat{background:var(--sage-lt);border-radius:var(--r-sm);padding:.75rem 1rem;text-align:center}
+.ieee-stat-num{font-family:var(--serif);font-size:1.4rem;color:var(--sage);line-height:1}
+.ieee-stat-label{font-size:11.5px;color:var(--ink2);margin-top:.2rem}
+
+.bar-section{background:var(--cream);border-radius:var(--r);padding:1.25rem;margin:1rem 0}
+.bar-label-row{font-size:11px;color:var(--ink3);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em}
+.bar-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;font-size:12px}
+.bar-name{width:72px;text-align:right;color:var(--ink2);flex-shrink:0}
+.bar-track{flex:1;height:7px;background:var(--cream2);border-radius:100px;overflow:hidden}
+.bar-fill{height:100%;border-radius:100px}
+.bar-fill.red{background:var(--terra)}
+.bar-fill.green{background:var(--sage)}
+.bar-val{width:50px;color:var(--ink);font-weight:500;font-size:11.5px}
+
+.severity-table{width:100%;border-collapse:collapse;font-size:13px;margin:1rem 0}
+.severity-table th{background:var(--cream2);color:var(--ink2);font-weight:500;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;padding:.6rem 1rem;text-align:left;border-bottom:1px solid var(--cream3)}
+.severity-table td{padding:.6rem 1rem;border-bottom:1px solid var(--cream3);color:var(--ink2)}
+.severity-table tr:last-child td{border-bottom:none}
+.severity-table tr:first-child td{color:var(--terra);font-weight:500}
+.severity-table tr:hover td{background:var(--cream)}
+.badge-yes{background:var(--terra-lt);color:var(--terra);padding:2px 8px;border-radius:100px;font-size:11px;font-weight:500}
+.badge-no{background:var(--cream2);color:var(--ink3);padding:2px 8px;border-radius:100px;font-size:11px}
+
+.ref-list{list-style:none;margin:0;counter-reset:refs}
+.ref-list li{counter-increment:refs;display:flex;gap:.75rem;padding:.5rem 0;border-bottom:0.5px solid var(--cream3);font-size:13px;color:var(--ink2);line-height:1.55}
+.ref-list li:last-child{border-bottom:none}
+.ref-list li::before{content:counter(refs);font-family:var(--serif);font-size:1rem;color:var(--terra);flex-shrink:0;width:20px;padding-top:.05rem}
+.ref-list li a{color:var(--sage)}
+
+.info-box{background:var(--sky-lt);border-left:3px solid var(--sky);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:14px;color:var(--ink2);line-height:1.65}
+.info-box strong{color:var(--ink)}
+
+.github-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:var(--cream);border-radius:100px;padding:.65rem 1.5rem;font-size:13.5px;font-weight:500;margin:.5rem .5rem .5rem 0;transition:background .15s}
+.github-btn:hover{background:var(--ink2);text-decoration:none;color:var(--cream)}
+.outline-btn{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--ink);border:1.5px solid var(--cream3);border-radius:100px;padding:.65rem 1.5rem;font-size:13.5px;font-weight:500;margin:.5rem .5rem .5rem 0;transition:all .15s}
+.outline-btn:hover{border-color:var(--ink3);text-decoration:none}
+
+footer{border-top:1px solid var(--cream3);padding:1.5rem 2.5rem;text-align:center;font-size:12.5px;color:var(--ink3)}
+
+@media(max-width:640px){
+  nav{padding:0 1.25rem}
+  .hero{padding:2.5rem 1.25rem 2rem}
+  .content{padding:0 1.25rem 4rem}
+  .result-banner-stats{gap:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://chiharuma38.github.io/" class="nav-name">Chiharu Mamiya</a>
+  <a href="https://chiharuma38.github.io/#projects" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to projects
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Power Systems · Transmission Planning · Open Source</div>
+  <h1>N-1 Contingency Screening<br/>+ Wind Integration Study</h1>
+  <p class="hero-desc">
+    Automated N-1 contingency analysis on the IEEE 39-bus New England test network,
+    the same methodology required by NERC TPL-001 for transmission planning studies
+    at PJM, MISO, and CAISO. Extended to study how wind penetration affects
+    grid reliability under single-element contingency stress.
+  </p>
+  <div class="tags">
+    <span class="tag sage">pandapower</span>
+    <span class="tag sage">Python</span>
+    <span class="tag sky">IEEE 39-bus</span>
+    <span class="tag sky">NERC TPL-001</span>
+    <span class="tag terra">Transmission Planning</span>
+    <span class="tag">Offshore Wind</span>
+  </div>
+
+  <div class="result-banner">
+    <div class="result-banner-label">Key results</div>
+    <div class="result-banner-stats">
+      <div><div class="rstat-num">157.5%</div><div class="rstat-label">Max line loading<br/>Line 26, most critical</div></div>
+      <div><div class="rstat-num">35 → 8</div><div class="rstat-label">Violations reduced<br/>77% drop at 80% wind</div></div>
+      <div><div class="rstat-num">35</div><div class="rstat-label">N-1 contingencies<br/>tested and ranked</div></div>
+      <div><div class="rstat-num">5</div><div class="rstat-label">Wind scenarios<br/>20% to 100% rated</div></div>
+    </div>
+  </div>
+
+  <a href="https://github.com/chiharuma38/power-systems-portfolio/tree/main/01_n1_contingency" class="github-btn" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    View code on GitHub
+  </a>
+</div>
+
+<div class="content">
+
+  <!-- WHAT IS N-1 -->
+  <div class="section-eyebrow">Background</div>
+  <h2>What is N-1 contingency analysis?</h2>
+  <p>The N-1 criterion is one of the most fundamental reliability standards in power systems engineering. It states that if any single element in a power system, a transmission line, transformer, or generator, fails unexpectedly, the remaining system must continue operating within safe limits without cascading failures or customer outages.</p>
+  <p>This standard is mandated in North America by NERC (the North American Electric Reliability Corporation) under Reliability Standard <strong>TPL-001-5</strong>, which requires transmission planners to demonstrate N-1 security before approving new generation interconnections. Grid operators including <strong>PJM, MISO, CAISO, and ERCOT</strong> run this analysis as a prerequisite for connecting any new power source, including wind and solar farms, to the transmission grid.</p>
+  <p>Put simply: before a wind farm gets connected to the grid, someone has to show that if a nearby line trips, nothing else will fail. This project automates that check on a standard benchmark network.</p>
+
+  <div class="info-box">
+    <strong>Professional context:</strong> At Siemens (2025), this type of contingency analysis was performed in PSS®E, the industry-standard commercial software used by utilities and ISOs globally. Python automation tools built there reduced the runtime of that workflow by approximately 30%. This project replicates the same analytical methodology using pandapower, the open-source equivalent, on a publicly available benchmark network. The engineering logic is identical.
+  </div>
+
+  <!-- IEEE 39 BUS -->
+  <div class="section-eyebrow">Network data</div>
+  <h2>The IEEE 39-Bus New England Power System</h2>
+  <p>The IEEE 39-bus network, commonly known as the <strong>10-machine New England Power System</strong>, is the standard benchmark test case used in this study. It represents a simplified, highly interconnected high-voltage transmission topology originally derived from the actual transmission grid in the New England area of the United States. <a href="https://icseg.iti.illinois.edu/ieee-39-bus-system/" target="_blank">[1]</a><a href="https://electricgrids.engr.tamu.edu/electric-grid-test-cases/new-england-ieee-39-bus-system/" target="_blank">[3]</a></p>
+
+  <div class="ieee-card">
+    <div class="card-title">Network characteristics</div>
+    <div class="ieee-grid">
+      <div class="ieee-stat"><div class="ieee-stat-num">39</div><div class="ieee-stat-label">Buses total</div></div>
+      <div class="ieee-stat"><div class="ieee-stat-num">10</div><div class="ieee-stat-label">Synchronous generators</div></div>
+      <div class="ieee-stat"><div class="ieee-stat-num">34</div><div class="ieee-stat-label">Transmission lines</div></div>
+      <div class="ieee-stat"><div class="ieee-stat-num">12</div><div class="ieee-stat-label">Tap-changing transformers</div></div>
+      <div class="ieee-stat"><div class="ieee-stat-num">19</div><div class="ieee-stat-label">Load buses</div></div>
+      <div class="ieee-stat"><div class="ieee-stat-num">HV</div><div class="ieee-stat-label">High-voltage transmission topology</div></div>
+    </div>
+  </div>
+
+  <h3>Key components</h3>
+  <ul>
+    <li><strong>Generators:</strong> 10 synchronous machines. Generator 1 typically represents an aggregation of a large number of generators outside the immediate study area, representing the rest of the interconnection. <a href="https://icseg.iti.illinois.edu/ieee-39-bus-system/" target="_blank">[1]</a><a href="https://ieee-dataport.org/documents/simulation-data-10-machine-39-bus-power-system" target="_blank">[2]</a></li>
+    <li><strong>Bus types:</strong> 39 buses comprising 10 generator buses, 12 load buses, and 17 constant power (PQ) nodes. <a href="https://www.researchgate.net/figure/A-SUMMARY-OF-THE-IEEE-39-BUS-SYSTEM_tbl2_363331521" target="_blank">[9]</a></li>
+    <li><strong>Topology:</strong> 34 transmission lines and 12 tap-changing transformers forming a highly meshed network typical of high-voltage transmission systems. <a href="https://www.researchgate.net/figure/shows-the-online-diagram-of-the-IEEE-39-Bus_fig1_340065910" target="_blank">[6]</a></li>
+    <li><strong>Geography:</strong> Derived from a simplified model of the actual transmission grid in the New England area of the United States. <a href="https://electricgrids.engr.tamu.edu/electric-grid-test-cases/new-england-ieee-39-bus-system/" target="_blank">[3]</a><a href="https://ieeexplore.ieee.org/iel7/8125121/8191962/08192187.pdf" target="_blank">[5]</a></li>
+  </ul>
+
+  <h3>Why this network is used</h3>
+  <p>Researchers and engineers use this network across a wide range of studies. It shows up in: <a href="https://www.mathworks.com/help/sps/ug/ieee-39-bus-system.html" target="_blank">[4]</a><a href="https://data.mendeley.com/datasets/p992nhb8ss" target="_blank">[7]</a><a href="https://www.researchgate.net/figure/The-39-bus-IEEE-standard-test-system_fig2_271826103" target="_blank">[8]</a></p>
+  <ul>
+    <li><strong>Transient Stability:</strong> Extensively used to study rotor angle dynamics and fault tolerance, for example, simulating a 3-phase to ground fault and observing whether generators remain in synchronism.</li>
+    <li><strong>Optimal Power Flow (OPF):</strong> Used to minimize generation costs and test economic dispatch limits across the network.</li>
+    <li><strong>N-1 Contingency Analysis:</strong> Standard benchmark for transmission planning studies, which is how it is used in this project.</li>
+    <li><strong>AI and ML research:</strong> A popular baseline for training machine learning algorithms to detect grid congestion, voltage instability, and blackout risk, directly relevant to Project 3 (ML-based fault detection) in this portfolio. <a href="https://data.mendeley.com/datasets/p992nhb8ss" target="_blank">[7]</a><a href="https://www.researchgate.net/figure/The-39-bus-IEEE-standard-test-system_fig2_271826103" target="_blank">[8]</a></li>
+  </ul>
+  <p>The network is built directly into pandapower and loads in a single line of code: <code style="background:var(--cream2);padding:2px 6px;border-radius:4px;font-size:13px">net = pandapower.networks.case39()</code>, no data download required.</p>
+
+  <!-- METHODOLOGY -->
+  <div class="section-eyebrow">Methodology</div>
+  <h2>What the code does, step by step</h2>
+
+  <h3>Step 1, Base case power flow</h3>
+  <p>The first step loads the IEEE 39-bus network and solves the AC power flow equations to establish a baseline. Power flow finds the voltage magnitude and angle at every bus, and the real and reactive power flowing through every line, given the generation dispatch and load at each bus. The mathematical method used is <strong>Newton-Raphson iteration</strong>, the same algorithm used by PSS®E in professional grid studies. It starts from a flat start (all voltages at 1.0 pu, all angles at 0°) and iterates until the power mismatch at every bus is below a convergence threshold of 1×10⁻⁸ MVA.</p>
+
+  <h3>Step 2, N-1 contingency loop</h3>
+  <p>For each of the 35 lines in the network, the code takes that line out, re-solves the power flow, and checks two things. Then it puts the line back and moves to the next one.</p>
+  <ul>
+    <li><strong>Thermal criterion (loading &gt; 100%):</strong> No remaining line should carry more than 100% of its rated current. Exceeding the thermal rating causes the conductor to sag due to heat expansion, reducing ground clearance. Protection relays will trip the line automatically, potentially starting a cascade.</li>
+    <li><strong>Voltage criterion (outside 0.95–1.05 pu):</strong> Every bus must stay within the standard North American operating band. Below 0.95 pu causes equipment stress, motor stall, and eventual voltage collapse. Above 1.05 pu risks insulation breakdown on transformers and cables.</li>
+  </ul>
+
+  <h3>Step 3, Wind penetration scenario</h3>
+  <p>Three generators (at buses 30, 31, and 32) are treated as variable wind turbines. Their output is varied from 20% to 100% of rated capacity in five steps. At each wind level, the entire N-1 contingency sweep is repeated, 35 outages re-tested, to produce a full picture of how increasing wind generation changes the number and severity of reliability violations across the network.</p>
+
+  <!-- RESULTS -->
+  <div class="section-eyebrow">Results</div>
+  <h2>What the results show</h2>
+
+  <h3>N-1 base case, severity ranking</h3>
+  <p>Line 26 is the weakest point in this network. When it trips, another line jumps to 157.5% of its thermal rating. In a real grid that second line would trip within seconds on its protection relay. You are now looking at a potential cascade. This is exactly the type of finding that triggers a reinforcement study: where do we need to build new lines or upgrade existing ones?</p>
+
+  <table class="severity-table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Outaged Line</th>
+        <th>Max Loading</th>
+        <th>Min Voltage (pu)</th>
+        <th>Thermal</th>
+        <th>Voltage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Line 26</td><td>157.5%</td><td>0.982</td><td><span class="badge-yes">Violation</span></td><td><span class="badge-yes">Violation</span></td></tr>
+      <tr><td>2</td><td>Line 17</td><td>132.5%</td><td>0.982</td><td><span class="badge-yes">Violation</span></td><td><span class="badge-yes">Violation</span></td></tr>
+      <tr><td>3</td><td>Line 16</td><td>111.8%</td><td>0.982</td><td><span class="badge-yes">Violation</span></td><td><span class="badge-yes">Violation</span></td></tr>
+      <tr><td>4</td><td>Line 28</td><td>111.3%</td><td>0.982</td><td><span class="badge-yes">Violation</span></td><td><span class="badge-yes">Violation</span></td></tr>
+      <tr><td>5</td><td>Line 22</td><td>110.4%</td><td>0.982</td><td><span class="badge-yes">Violation</span></td><td><span class="badge-yes">Violation</span></td></tr>
+      <tr><td>6</td><td>Line 15</td><td>107.4%</td><td>0.982</td><td><span class="badge-yes">Violation</span></td><td><span class="badge-yes">Violation</span></td></tr>
+      <tr><td>7</td><td>Line 31</td><td>106.3%</td><td>0.982</td><td><span class="badge-yes">Violation</span></td><td><span class="badge-yes">Violation</span></td></tr>
+      <tr><td>8</td><td>Line 11</td><td>106.0%</td><td>0.982</td><td><span class="badge-yes">Violation</span></td><td><span class="badge-yes">Violation</span></td></tr>
+      <tr><td>9</td><td>Line 7</td><td>103.3%</td><td>0.982</td><td><span class="badge-yes">Violation</span></td><td><span class="badge-yes">Violation</span></td></tr>
+      <tr><td>10</td><td>Line 8</td><td>91.5%</td><td>0.982</td><td><span class="badge-no">Within limit</span></td><td><span class="badge-yes">Violation</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Wind penetration scenario</h3>
+  <div class="bar-section">
+    <div class="bar-label-row">N-1 violations vs wind generation level, IEEE 39-bus</div>
+    <div class="bar-row"><div class="bar-name">20% wind</div><div class="bar-track"><div class="bar-fill red" style="width:100%"></div></div><div class="bar-val">35 / 35</div></div>
+    <div class="bar-row"><div class="bar-name">40% wind</div><div class="bar-track"><div class="bar-fill red" style="width:60%"></div></div><div class="bar-val">21 / 35</div></div>
+    <div class="bar-row"><div class="bar-name">60% wind</div><div class="bar-track"><div class="bar-fill green" style="width:29%"></div></div><div class="bar-val">10 / 35</div></div>
+    <div class="bar-row"><div class="bar-name">80% wind</div><div class="bar-track"><div class="bar-fill green" style="width:23%"></div></div><div class="bar-val">8 / 35</div></div>
+    <div class="bar-row"><div class="bar-name">100% wind</div><div class="bar-track"><div class="bar-fill green" style="width:29%"></div></div><div class="bar-val">10 / 35</div></div>
+  </div>
+
+  <p>As wind generation increases from 20% to 80% of rated output, N-1 violations drop from 35 to 8, a <strong>77% reduction</strong>. This happens because higher wind output from distributed generators reduces the power flowing through the most heavily loaded transmission corridors, relieving thermal pressure on critical lines.</p>
+  <p>However, at 100% wind output, violations tick back up slightly to 10. This reflects a real phenomenon in high-renewable grids: as power flow patterns shift with very high wind penetration, new stress points emerge on lines that were previously lightly loaded. Transmission planners call this a <strong>topology change in the power flow pattern</strong>, and it is one of the central engineering challenges in integrating large amounts of variable renewable generation into existing transmission infrastructure.</p>
+
+  <!-- OUTPUT FILES -->
+  <div class="section-eyebrow">Output</div>
+  <h2>Files generated</h2>
+  <div class="card">
+    <div class="card-title">Results folder</div>
+    <ul>
+      <li><strong>n1_results.csv</strong>, full contingency results table: 35 rows, one per outaged line, with max loading, min voltage, and violation flags</li>
+      <li><strong>wind_scenario.csv</strong>, violation counts at each of the 5 wind generation levels with violation rate percentage</li>
+      <li><strong>n1_results.png</strong>, bar chart of all 35 contingencies ranked by severity, with thermal limit reference line and voltage scatter plot</li>
+      <li><strong>wind_scenario.png</strong>, line chart of N-1 violations versus wind penetration level</li>
+    </ul>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="section-eyebrow">Tools and libraries</div>
+  <h2>Software used</h2>
+  <ul>
+    <li><strong>pandapower 2.14.1</strong>, open-source Python library for AC power flow, N-1 contingency analysis, and grid modeling. Compatible with PSS®E network formats.</li>
+    <li><strong>numpy 1.26.4</strong>, numerical computing for array operations and mathematical calculations.</li>
+    <li><strong>pandas 2.1.4</strong>, data manipulation and CSV export of results.</li>
+    <li><strong>matplotlib</strong>, static chart generation for contingency severity ranking and wind scenario plots.</li>
+    <li><strong>Python 3.11</strong>, all code runs without commercial software licenses.</li>
+  </ul>
+
+  <!-- REFERENCES -->
+  <div class="section-eyebrow">References</div>
+  <h2>References</h2>
+  <ol class="ref-list">
+    <li>Illinois Center for a Smarter Electric Grid (ICSEG). "IEEE 39-Bus System." University of Illinois. <a href="https://icseg.iti.illinois.edu/ieee-39-bus-system/" target="_blank">icseg.iti.illinois.edu</a></li>
+    <li>IEEE DataPort. "Simulation Data for 10-Machine 39-Bus Power System." <a href="https://ieee-dataport.org/documents/simulation-data-10-machine-39-bus-power-system" target="_blank">ieee-dataport.org</a></li>
+    <li>Texas A&amp;M University Electric Grid Test Cases. "New England IEEE 39-Bus System." <a href="https://electricgrids.engr.tamu.edu/electric-grid-test-cases/new-england-ieee-39-bus-system/" target="_blank">electricgrids.engr.tamu.edu</a></li>
+    <li>MathWorks. "IEEE 39-Bus System, Simscape Electrical." <a href="https://www.mathworks.com/help/sps/ug/ieee-39-bus-system.html" target="_blank">mathworks.com</a></li>
+    <li>IEEE Xplore. "Multistep Block Method for Power System Simulation." <a href="https://ieeexplore.ieee.org/iel7/8125121/8191962/08192187.pdf" target="_blank">ieeexplore.ieee.org</a></li>
+    <li>ResearchGate. "Online diagram of the IEEE 39-Bus." <a href="https://www.researchgate.net/figure/shows-the-online-diagram-of-the-IEEE-39-Bus-It-consists-of-39-buses-10-generators-12_fig1_340065910" target="_blank">researchgate.net</a></li>
+    <li>Mendeley Data. "Dataset: 10-Machine New England 39-Bus Power System." <a href="https://data.mendeley.com/datasets/p992nhb8ss" target="_blank">data.mendeley.com</a></li>
+    <li>ResearchGate. "The 39-bus IEEE standard test system." <a href="https://www.researchgate.net/figure/The-39-bus-IEEE-standard-test-system_fig2_271826103" target="_blank">researchgate.net</a></li>
+    <li>ResearchGate. "A Summary of the IEEE 39-Bus System." <a href="https://www.researchgate.net/figure/A-SUMMARY-OF-THE-IEEE-39-BUS-SYSTEM_tbl2_363331521" target="_blank">researchgate.net</a></li>
+    <li>NERC. "Transmission Planning (TPL) Standards, TPL-001-5." <a href="https://www.nerc.com/pa/Stand/Pages/TPL0015.aspx" target="_blank">nerc.com</a></li>
+    <li>Thurner L. et al. "pandapower, An Open-Source Python Tool for Convenient Modeling, Analysis, and Optimization of Electric Power Systems." IEEE Transactions on Power Systems, 2018. <a href="https://pandapower.org" target="_blank">pandapower.org</a></li>
+  </ol>
+
+  <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--cream3)">
+    <a href="https://github.com/chiharuma38/power-systems-portfolio/tree/main/01_n1_contingency" class="github-btn" target="_blank">View code on GitHub</a>
+    <a href="https://chiharuma38.github.io/#projects" class="outline-btn">← Back to all projects</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>Chiharu Mamiya · Power Systems Engineer · KTH/KU Leuven SENSE MSc 2026–2028</p>
+</footer>
+
+</body>
+</html>
