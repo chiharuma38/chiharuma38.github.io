@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>FPGA Catch-the-Falling-Object Game — Chiharu Mamiya</title>
+<title>FPGA Catch-the-Falling-Object Game. Chiharu Mamiya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 <style>
@@ -65,7 +65,7 @@ footer{border-top:1px solid var(--cream3);padding:1.5rem 2.5rem;text-align:cente
 <body>
 <nav>
   <a href="https://chiharuma38.github.io/" class="nav-name">Chiharu Mamiya</a>
-  <a href="https://chiharuma38.github.io/#earlier" class="nav-back">
+  <a href="https://chiharuma38.github.io/#projects" class="nav-back">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     Back to projects
   </a>
@@ -82,7 +82,7 @@ footer{border-top:1px solid var(--cream3);padding:1.5rem 2.5rem;text-align:cente
   
         <h2>Project Overview</h2>
         <div class="result-card">
-      <p>Designed and implemented a complete real-time game in VHDL running on an FPGA development board. The game renders falling objects via VGA output, detects collisions with a player-controlled catcher, and tracks and displays the score — all in hardware logic with no software processor involved.</p>
+      <p>Designed and implemented a complete real-time game in VHDL running on an FPGA development board. The game renders falling objects via VGA output, detects collisions with a player-controlled catcher, and tracks and displays the score. all in hardware logic with no software processor involved.</p>
       <ul>
         <li><strong>Random Object Generation:</strong> Linear feedback shift register (LFSR) used to generate pseudo-random spawn positions for falling objects.</li>
         <li><strong>Collision Detection:</strong> Pixel-level bounding box collision logic implemented in VHDL combinational logic.</li>
@@ -94,7 +94,7 @@ footer{border-top:1px solid var(--cream3);padding:1.5rem 2.5rem;text-align:cente
         <h2>Technical Highlights</h2>
         <div class="result-card">
       <ul>
-        <li>Entire game logic implemented in synthesizable VHDL — no embedded processor or software.</li>
+        <li>Entire game logic implemented in synthesizable VHDL. no embedded processor or software.</li>
         <li>State machine architecture managing game states: idle, playing, game over.</li>
         <li>Clock dividers used to generate precise timing for VGA sync and game update rates.</li>
         <li>Simulated and verified using ModelSim before hardware deployment.</li>
@@ -104,16 +104,16 @@ footer{border-top:1px solid var(--cream3);padding:1.5rem 2.5rem;text-align:cente
         <h2>Lessons Learned</h2>
         <div class="result-card">
       <ul>
-        <li>Hardware description languages require a fundamentally different mindset from software — everything runs in parallel.</li>
+        <li>Hardware description languages require a fundamentally different mindset from software. everything runs in parallel.</li>
         <li>Timing constraints and clock domain crossing are critical to get right before synthesis.</li>
-        <li>Simulation is essential — debugging on hardware without simulation is extremely difficult.</li>
+        <li>Simulation is essential. debugging on hardware without simulation is extremely difficult.</li>
       </ul>
     </div>
         
   
   <hr class="content-divider"/>
   <p style="font-size:13px;color:var(--ink3)">
-    <a href="https://chiharuma38.github.io/#earlier">← Back to all projects</a>
+    <a href="https://chiharuma38.github.io/#projects">← Back to all projects</a>
   </p>
 </div>
 
