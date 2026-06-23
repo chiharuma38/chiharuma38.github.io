@@ -136,11 +136,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,244,239,0.9);backdrop-
 
 /* EDUCATION */
 .edu-grid{display:grid;gap:1rem}
-.edu-card{background:white;border:1px solid var(--cream3);border-radius:var(--r);padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
+.edu-card{background:white;border:1px solid var(--cream3);border-radius:var(--r);padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
 .edu-degree{font-size:14.5px;font-weight:500;color:var(--ink);margin-bottom:.2rem}
 .edu-school{font-size:13px;color:var(--sage);margin-bottom:.2rem}
 .edu-note{font-size:12px;color:var(--ink3);line-height:1.5}
-.edu-dates{font-size:12px;color:var(--ink3);white-space:nowrap;background:var(--cream);border:1px solid var(--cream3);border-radius:100px;padding:4px 12px;flex-shrink:0}
+.edu-dates{font-size:12px;color:var(--ink3);white-space:nowrap;background:var(--cream);border:1px solid var(--cream3);border-radius:100px;padding:4px 12px;flex-shrink:0;margin-top:.15rem}
 
 /* SKILLS */
 .skills-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
@@ -190,8 +190,6 @@ footer{border-top:1px solid var(--cream3);padding:2rem 2.5rem;text-align:center;
     <li><a href="#projects">Power Systems</a></li>
     <li><a href="#earlier">Earlier Work</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#beyond">About</a></li>
-    <li><a href="#beyond">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -301,7 +299,7 @@ footer{border-top:1px solid var(--cream3);padding:2rem 2.5rem;text-align:center;
       </div>
       <div class="project-bottom">
         <div class="project-tech"><span class="tech-chip">pandapower</span><span class="tech-chip">Python</span><span class="tech-chip">IEEE 39-bus</span><span class="tech-chip">NERC TPL-001</span></div>
-        <a href="https://github.com/chiharuma38/power-systems-portfolio/tree/main/01_n1_contingency" class="project-link" target="_blank">View on GitHub →</a>
+        <a href="projects/n1_contingency.html" class="project-link">View project →</a>
       </div>
     </div>
 
@@ -510,49 +508,6 @@ footer{border-top:1px solid var(--cream3);padding:2rem 2.5rem;text-align:center;
   </div>
 </section>
 
-<hr class="section-divider"/>
-
-<section class="section" id="beyond">
-  <div class="section-header">
-    <div class="section-eyebrow">The human part</div>
-    <h2>Beyond the grid</h2>
-  </div>
-  <div style="max-width:680px">
-    <p style="color:var(--ink2);margin-bottom:1.25rem;font-size:15.5px;line-height:1.85">
-      I grew up in California nagging everyone to turn off lights they weren't using.
-      The national parks of Utah, Colorado, and Arizona were my backyard —
-      nature felt worth protecting before I had the vocabulary to explain why.
-    </p>
-    <p style="color:var(--ink2);margin-bottom:1.25rem;font-size:15.5px;line-height:1.85">
-      Volunteer work in rural Japan gave me language for it. I spent time on forest
-      preservation projects, cutting trees to prevent drought (more counterintuitive
-      than it sounds), and farming land that showed me how fragile food systems really are.
-      I also became quietly obsessed with Japan's energy history — a country that went to
-      war partly because it had no domestic energy resources.
-      Energy isn't just an engineering problem. It never was.
-    </p>
-    <p style="color:var(--ink2);margin-bottom:1.25rem;font-size:15.5px;line-height:1.85">
-      I did gymnastics for twelve years. Tore my knee the day before my final competition
-      and competed anyway. That injury pulled me toward medical technology for a while —
-      a Medtronic internship, a medical imaging pitch competition, biomedical research.
-      Then in my third year I heard about the 2025 blackout in Spain and Portugal.
-      I was working at Siemens learning how grids are planned. I understood exactly
-      how it had happened. That was the moment this stopped being a career
-      and became something I felt responsible for.
-    </p>
-    <p style="color:var(--ink2);margin-bottom:1.25rem;font-size:15.5px;line-height:1.85">
-      Wind turbines out of train windows in Germany and the Netherlands finished the job.
-    </p>
-    <p style="color:var(--ink2);font-size:15.5px;line-height:1.85">
-      People sometimes say I don't look like an engineer. I take that as a compliment.
-      The best technical people I've met could also explain things clearly to someone
-      who knew nothing. I run an English teaching account on the side — not because I need to,
-      but because communicating across language and knowledge gaps is a skill
-      that engineering school doesn't teach. I'm still learning how to do it.
-    </p>
-  </div>
-</section>
-
 <!-- SKILLS -->
 <section class="section" id="skills">
   <div class="section-header">
@@ -594,49 +549,6 @@ footer{border-top:1px solid var(--cream3);padding:2rem 2.5rem;text-align:center;
   </div>
 </section>
 
-<hr class="section-divider"/>
-
-<!-- BEYOND THE GRID -->
-<section class="section" id="beyond">
-  <div class="section-header">
-    <div class="section-eyebrow">The person behind the work</div>
-    <h2>Beyond the grid</h2>
-  </div>
-  <div style="max-width:660px">
-    <p style="color:var(--ink2);font-size:15px;line-height:1.85;margin-bottom:1.25rem">
-      I grew up in California nagging everyone to turn off lights they weren't using.
-      The national parks of Utah, Colorado, and Arizona were my backyard —
-      nature felt worth protecting before I had the vocabulary to explain why.
-    </p>
-    <p style="color:var(--ink2);font-size:15px;line-height:1.85;margin-bottom:1.25rem">
-      Volunteer work in rural Japan gave me language for it. I spent time on forest preservation
-      projects, cutting trees to prevent drought (more counterintuitive than it sounds),
-      and farming land that showed me how fragile food systems really are.
-      I also became quietly obsessed with Japan's energy history —
-      a country that went to war partly because it had no domestic energy resources.
-      Energy isn't just an engineering problem. It never was.
-    </p>
-    <p style="color:var(--ink2);font-size:15px;line-height:1.85;margin-bottom:1.25rem">
-      I did gymnastics for twelve years. Tore my knee the day before my final competition
-      and competed anyway. That injury pulled me toward medical technology for a while —
-      a Medtronic internship, a medical imaging pitch competition, biomedical research.
-      Then in my third year I heard about the 2025 blackout in Spain and Portugal.
-      I was working at Siemens learning how grids are planned. I understood exactly
-      how it had happened. That was the moment this stopped being a career
-      and became something I felt responsible for.
-    </p>
-    <p style="color:var(--ink2);font-size:15px;line-height:1.85;margin-bottom:1.25rem">
-      Wind turbines out of train windows in Germany and the Netherlands finished the job.
-    </p>
-    <p style="color:var(--ink2);font-size:15px;line-height:1.85">
-      People sometimes tell me I don't look like an engineer. I take that as a compliment.
-      The best technical people I've met could also explain things clearly to someone
-      who knew nothing. I run an English teaching account on the side —
-      not because I need to, but because communicating complex things simply
-      is a skill engineering school doesn't teach. I'm still learning how to do it.
-    </p>
-  </div>
-</section>
 
 <hr class="section-divider"/>
 
